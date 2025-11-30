@@ -8,6 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
+    "increment-cache": "node increment-cache-version.cjs",
+    "predeploy": "npm run increment-cache",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
