@@ -2,7 +2,6 @@ import type { Card } from '../types'
 
 interface CardGridProps {
   cards: Card[]
-  onCardClick: (card: Card) => void
 }
 
 const getRarityStyle = (rarity: string) => {
@@ -31,7 +30,7 @@ const getRarityStyle = (rarity: string) => {
   }
 }
 
-export function CardGrid({ cards, onCardClick }: CardGridProps) {
+export function CardGrid({ cards }: CardGridProps) {
   if (cards.length === 0) {
     return (
       <div className="text-center py-12">
@@ -52,12 +51,11 @@ export function CardGrid({ cards, onCardClick }: CardGridProps) {
         return (
           <div
             key={card.id}
-            className="glass p-3 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-200 animate-fade-in hover:scale-105"
-            onClick={() => onCardClick(card)}
+            className="glass p-3 rounded-lg transition-all duration-200 animate-fade-in"
           >
             {/* Card image */}
             {card.image_uris && (
-              <div className="w-full aspect-[5/7] mb-2 rounded overflow-hidden shadow-md">
+              <div className="w-full aspect-[5/7] mb-2 overflow-hidden shadow-md" style={{ borderRadius: '4.75% / 3.5%' }}>
                 <img
                   src={card.image_uris}
                   alt={card.name}
@@ -75,16 +73,31 @@ export function CardGrid({ cards, onCardClick }: CardGridProps) {
               {card.edition}
             </div>
 
-            {/* Rarity & Quantity */}
+            {/* Scryfall Link & Quantity */}
             <div className="flex items-center justify-between mt-2">
-              <div
-                className="w-4 h-4 rounded-full shadow-md"
-                style={getRarityStyle(card.rarity)}
-                title={card.rarity}
-              />
-              <span className="text-xs font-medium" style={{ color: 'var(--color-accent-400)' }}>
-                Qty: {card.quantity}
-              </span>
+              {card.scryfall_id ? (
+                <a
+                  href={`https://scryfall.com/card/${card.scryfall_id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs hover:underline flex items-center gap-1"
+                  style={{ color: 'var(--color-accent-400)' }}
+                >
+                  🔗 Scryfall
+                </a>
+              ) : (
+                <div className="w-4" />
+              )}
+              <div className="flex items-center gap-2">
+                <div
+                  className="w-4 h-4 rounded-full shadow-md"
+                  style={getRarityStyle(card.rarity)}
+                  title={card.rarity}
+                />
+                <span className="text-xs font-medium" style={{ color: 'var(--color-accent-400)' }}>
+                  Qty: {card.quantity}
+                </span>
+              </div>
             </div>
           </div>
         )
