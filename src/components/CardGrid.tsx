@@ -49,8 +49,6 @@ export function CardGrid({ cards, onCardClick }: CardGridProps) {
   return (
     <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
       {cards.map((card) => {
-        const imageUri = card.image_uris ? JSON.parse(card.image_uris) : null
-
         return (
           <div
             key={card.id}
@@ -58,10 +56,10 @@ export function CardGrid({ cards, onCardClick }: CardGridProps) {
             onClick={() => onCardClick(card)}
           >
             {/* Card image */}
-            {imageUri?.normal && (
+            {card.image_uris && (
               <div className="w-full aspect-[5/7] mb-2 rounded overflow-hidden shadow-md">
                 <img
-                  src={imageUri.normal}
+                  src={card.image_uris}
                   alt={card.name}
                   className="w-full h-full object-cover"
                   loading="lazy"
