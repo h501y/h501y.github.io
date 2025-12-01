@@ -1,5 +1,5 @@
 // Increment this version number with each deployment to force cache refresh
-const CACHE_VERSION = 6;
+const CACHE_VERSION = 7;
 const CACHE_NAME = `mtg-collection-v${CACHE_VERSION}`;
 const DATA_CACHE_NAME = `mtg-data-v${CACHE_VERSION}`;
 
