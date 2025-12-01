@@ -8,9 +8,12 @@ Web application mobile-first per visualizzare la collezione di carte Magic: The 
 
 - ✅ **Solo lettura** - Visualizza e cerca carte senza modifiche
 - ✅ **Mobile-first** - Ottimizzato per smartphone e tablet
+- ✅ **PWA completa** - Installabile come app, funziona offline
 - ✅ **Filtri completi** - Tutti i filtri dell'app desktop
 - ✅ **Design Cosmic** - Palette colori personalizzata
-- ✅ **Performance** - Build 169 KB (52 KB gzipped)
+- ✅ **Performance** - Build 166 KB (52 KB gzipped)
+- ✅ **Smart caching** - Network-first per dati, cache-first per asset
+- ✅ **Auto-deploy** - GitHub Actions per deploy automatico
 - ✅ **HTTPS** - Hosting sicuro gratuito su GitHub Pages
 
 ## 🚀 Setup locale
@@ -39,17 +42,23 @@ I file statici saranno generati nella cartella `dist/`
 
 ## 📦 Deploy su GitHub Pages
 
-### Deploy automatico
+### ⚡ Deploy automatico con GitHub Actions
+
+Ogni **push su `main`** triggera automaticamente:
+1. Incremento cache version del service worker
+2. Build di produzione con type-check
+3. Deploy su branch `gh-pages`
+4. Pubblicazione su GitHub Pages (2-3 minuti)
+
+**Workflow**: [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
+
+### Deploy manuale (alternativa)
 
 ```bash
 npm run deploy
 ```
 
-Questo comando:
-1. Esegue TypeScript type-check
-2. Crea build di produzione
-3. Pusha su branch `gh-pages`
-4. GitHub Pages aggiorna automaticamente (2-3 minuti)
+Questo comando locale esegue gli stessi step del workflow automatico.
 
 ### Prima volta - Setup GitHub Pages
 
