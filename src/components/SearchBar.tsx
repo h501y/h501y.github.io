@@ -54,6 +54,7 @@ export function SearchBar({ onSearch, placeholder = 'Cerca carte...' }: SearchBa
             placeholder={placeholder}
             className="w-full px-4 py-3 pr-24 bg-transparent border-none outline-none text-white placeholder-gray-400"
             style={{ fontSize: '16px' }}
+            autoComplete="off"
           />
           <div className="absolute right-2 top-1/2 -translate-y-1/2 flex gap-2">
             {query && (
@@ -93,21 +94,21 @@ export function SearchBar({ onSearch, placeholder = 'Cerca carte...' }: SearchBa
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <div className="glass rounded-lg p-3">
+            <span className="text-gray-500">Solo nome (IT/EN):</span>
+            <code className="block mt-1 text-xs" style={{ color: 'var(--color-accent-400)' }}>
+              Lightning Bolt
+            </code>
+          </div>
+          <div className="glass rounded-lg p-3">
             <span className="text-gray-500">Scryfall-style:</span>
             <code className="block mt-1 text-xs" style={{ color: 'var(--color-accent-400)' }}>
               c:r t:creature cmc&gt;=3
             </code>
           </div>
           <div className="glass rounded-lg p-3">
-            <span className="text-gray-500">Verboso:</span>
+            <span className="text-gray-500">Nome + filtri:</span>
             <code className="block mt-1 text-xs" style={{ color: 'var(--color-accent-400)' }}>
-              color:red type:creature mana&gt;=3
-            </code>
-          </div>
-          <div className="glass rounded-lg p-3">
-            <span className="text-gray-500">Nome e set:</span>
-            <code className="block mt-1 text-xs" style={{ color: 'var(--color-accent-400)' }}>
-              name:swamp set:M21
+              Jace c:u r:m
             </code>
           </div>
           <div className="glass rounded-lg p-3">

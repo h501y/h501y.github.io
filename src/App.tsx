@@ -247,7 +247,7 @@ export default function App() {
               <div className="w-full max-w-2xl">
                 <SearchBar
                   onSearch={handleQuerySearch}
-                  placeholder="Es: c:r t:creature cmc>=3 oppure color:red type:creature..."
+                  placeholder="Cerca per nome (Lightning Bolt) o usa sintassi avanzata (c:r t:creature)..."
                 />
               </div>
 
@@ -262,7 +262,7 @@ export default function App() {
                 </p>
                 <div className="text-sm text-muted-foreground space-y-1">
                   <p className="text-xs">
-                    <code className="text-xs">name:swamp</code>, <code className="text-xs">c:r t:creature</code>
+                    <code className="text-xs">Lightning Bolt</code>, <code className="text-xs">Jace c:u</code>, <code className="text-xs">c:r t:creature</code>
                   </p>
                   <p>
                     Totale: <span className="font-semibold" style={{ color: 'var(--color-accent-500)' }}>{stats.total_cards}</span> carte

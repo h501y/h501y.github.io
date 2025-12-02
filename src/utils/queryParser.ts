@@ -119,6 +119,7 @@ export function parseQuery(query: string): ParsedQuery {
   }
 
   const tokens = tokenize(query)
+  const unmatchedTokens: string[] = []
 
   for (const token of tokens) {
     // Skip boolean operators for now (could be enhanced later)
@@ -128,6 +129,8 @@ export function parseQuery(query: string): ParsedQuery {
 
     const parsed = parseToken(token)
     if (!parsed) {
+      // Collect tokens that don't match field:value pattern
+      unmatchedTokens.push(token)
       continue
     }
 
@@ -204,6 +207,11 @@ export function parseQuery(query: string): ParsedQuery {
     }
   }
 
+  // If there are unmatched tokens and no explicit name filter, use them as name search
+  if (unmatchedTokens.length > 0 && !result.name) {
+    result.name = unmatchedTokens.join(' ').replace(/^["']|["']$/g, '')
+  }
+
   return result
 }
 
@@ -217,4 +225,10 @@ export function parseQuery(query: string): ParsedQuery {
  *
  * parseQuery("name:swamp set:M21 r:c")
  * // => { name: 'swamp', set: 'M21', rarity: ['common'] }
+ *
+ * parseQuery("Lightning Bolt")
+ * // => { name: 'Lightning Bolt' }
+ *
+ * parseQuery("Jace c:u")
+ * // => { name: 'Jace', colors: ['U'] }
  */
