@@ -1,11 +1,128 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useCollection } from './hooks/useCollection'
 import { Sidebar } from './components/Sidebar'
 import { CardGrid } from './components/CardGrid'
+import { SearchBar } from './components/SearchBar'
+import { parseQuery } from './utils/queryParser'
 
 export default function App() {
   const collection = useCollection()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  // Check if any filters are active
+  const hasActiveFilters = useMemo(() => {
+    if (!collection.data) return false
+
+    // Check text filters
+    if (collection.nameFilter.trim()) return true
+    if (collection.textFilter.trim()) return true
+    if (collection.typeLineFilter.trim()) return true
+    if (collection.manaCostFilter.trim()) return true
+    if (collection.statValue.trim()) return true
+
+    // Check dropdown filters
+    if (collection.setFilter) return true
+    if (collection.tagFilter) return true
+
+    // Check color filters
+    if (Object.values(collection.colorFilters).some(v => v)) return true
+
+    // Check color identity filters
+    if (Object.values(collection.colorIdentityFilters).some(v => v)) return true
+
+    // Check rarity filters (if any are disabled, it means filtering is active)
+    if (!collection.rarityFilters.mythic || !collection.rarityFilters.rare ||
+        !collection.rarityFilters.uncommon || !collection.rarityFilters.common) return true
+
+    return false
+  }, [
+    collection.data,
+    collection.nameFilter,
+    collection.textFilter,
+    collection.typeLineFilter,
+    collection.manaCostFilter,
+    collection.statValue,
+    collection.setFilter,
+    collection.tagFilter,
+    collection.colorFilters,
+    collection.colorIdentityFilters,
+    collection.rarityFilters
+  ])
+
+  // Handle query search
+  const handleQuerySearch = (query: string) => {
+    const parsed = parseQuery(query)
+
+    // Apply filters based on parsed query
+    if (parsed.name) {
+      collection.setNameFilter(parsed.name)
+    }
+
+    if (parsed.type) {
+      collection.setTypeLineFilter(parsed.type)
+    }
+
+    if (parsed.text) {
+      collection.setTextFilter(parsed.text)
+    }
+
+    if (parsed.colors && parsed.colors.length > 0) {
+      const newFilters = { W: false, U: false, B: false, R: false, G: false, C: false }
+      parsed.colors.forEach(c => {
+        if (c in newFilters) {
+          newFilters[c as keyof typeof newFilters] = true
+        }
+      })
+      collection.setColorFilters(newFilters)
+    }
+
+    if (parsed.identity && parsed.identity.length > 0) {
+      const newFilters = { W: false, U: false, B: false, R: false, G: false, C: false }
+      parsed.identity.forEach(c => {
+        if (c in newFilters) {
+          newFilters[c as keyof typeof newFilters] = true
+        }
+      })
+      collection.setColorIdentityFilters(newFilters)
+    }
+
+    if (parsed.rarity && parsed.rarity.length > 0) {
+      const newFilters = { mythic: false, rare: false, uncommon: false, common: false }
+      parsed.rarity.forEach(r => {
+        if (r in newFilters) {
+          newFilters[r as keyof typeof newFilters] = true
+        }
+      })
+      collection.setRarityFilters(newFilters)
+    }
+
+    if (parsed.set) {
+      collection.setSetFilter(parsed.set)
+    }
+
+    if (parsed.tag) {
+      collection.setTagFilter(parsed.tag)
+    }
+
+    if (parsed.cmc) {
+      // For CMC, convert to the format used by manaCostFilter
+      const { operator, value } = parsed.cmc
+      collection.setManaCostFilter(`${operator}${value}`)
+    }
+
+    if (parsed.power || parsed.toughness) {
+      // For power/toughness, use the stat filters
+      if (parsed.power) {
+        collection.setStatType('power')
+        collection.setStatOperator(parsed.power.operator as '=' | '>' | '<' | '>=' | '<=')
+        collection.setStatValue(String(parsed.power.value))
+      } else if (parsed.toughness) {
+        collection.setStatType('toughness')
+        collection.setStatOperator(parsed.toughness.operator as '=' | '>' | '<' | '>=' | '<=')
+        collection.setStatValue(String(parsed.toughness.value))
+      }
+    }
+  }
 
   if (collection.isLoading) {
     return (
@@ -124,9 +241,38 @@ export default function App() {
 
         {/* Card Grid */}
         <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
-          <CardGrid
-            cards={collection.cards}
-          />
+          {!hasActiveFilters ? (
+            <div className="flex flex-col items-center justify-center h-full gap-6">
+              {/* Search Bar */}
+              <div className="w-full max-w-2xl">
+                <SearchBar
+                  onSearch={handleQuerySearch}
+                  placeholder="Es: c:r t:creature cmc>=3 oppure color:red type:creature..."
+                />
+              </div>
+
+              {/* Placeholder Message */}
+              <div className="text-center glass p-12 rounded-xl max-w-lg">
+                <svg className="w-16 h-16 mx-auto mb-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <h2 className="text-xl font-semibold mb-2">Cerca le tue carte</h2>
+                <p className="text-muted-foreground mb-4">
+                  Usa la search bar sopra o i filtri nella sidebar
+                </p>
+                <div className="text-sm text-muted-foreground space-y-1">
+                  <p className="text-xs">
+                    <code className="text-xs">name:swamp</code>, <code className="text-xs">c:r t:creature</code>
+                  </p>
+                  <p>
+                    Totale: <span className="font-semibold" style={{ color: 'var(--color-accent-500)' }}>{stats.total_cards}</span> carte
+                  </p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <CardGrid cards={collection.cards} />
+          )}
         </div>
       </main>
     </div>

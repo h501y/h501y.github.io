@@ -68,7 +68,7 @@ export function ColorFilter({
                 color: colorMode === mode ? 'var(--color-primary-200)' : 'var(--color-gray-400)'
               }}
             >
-              {mode === 'exactly' ? 'Esatto' : mode === 'including' ? 'Include' : 'Al massimo'}
+              {mode === 'exactly' ? 'Esatto' : mode === 'including' ? 'Include' : 'Almeno'}
             </button>
           ))}
         </div>

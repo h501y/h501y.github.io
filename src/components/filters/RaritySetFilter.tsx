@@ -45,8 +45,8 @@ export function RaritySetFilter({
               className="px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 flex items-center justify-between"
               style={{
                 backgroundColor: rarityFilters[key] ? `${color}20` : 'rgba(255, 255, 255, 0.05)',
-                border: `1px solid ${rarityFilters[key] ? color : 'rgba(255, 255, 255, 0.1)'}`,
-                color: rarityFilters[key] ? color : 'var(--color-gray-400)'
+                border: `1px solid ${rarityFilters[key] ? (key === 'common' ? '#ffffff' : color) : 'rgba(255, 255, 255, 0.1)'}`,
+                color: rarityFilters[key] ? (key === 'common' ? '#ffffff' : color) : 'var(--color-gray-400)'
               }}
             >
               <span>{name}</span>
