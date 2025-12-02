@@ -88,43 +88,11 @@ export function SearchBar({ onSearch, placeholder = 'Cerca carte...' }: SearchBa
       </form>
 
       {/* Syntax Examples */}
-      <div className="mt-4 space-y-2 text-sm text-gray-400">
-        <p className="font-semibold" style={{ color: 'var(--color-gray-300)' }}>
-          💡 Esempi di sintassi:
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          <div className="glass rounded-lg p-3">
-            <span className="text-gray-500">Solo nome (IT/EN):</span>
-            <code className="block mt-1 text-xs" style={{ color: 'var(--color-accent-400)' }}>
-              Lightning Bolt
-            </code>
-          </div>
-          <div className="glass rounded-lg p-3">
-            <span className="text-gray-500">Scryfall-style:</span>
-            <code className="block mt-1 text-xs" style={{ color: 'var(--color-accent-400)' }}>
-              c:r t:creature cmc&gt;=3
-            </code>
-          </div>
-          <div className="glass rounded-lg p-3">
-            <span className="text-gray-500">Nome + filtri:</span>
-            <code className="block mt-1 text-xs" style={{ color: 'var(--color-accent-400)' }}>
-              Jace c:u r:m
-            </code>
-          </div>
-          <div className="glass rounded-lg p-3">
-            <span className="text-gray-500">Power/Toughness:</span>
-            <code className="block mt-1 text-xs" style={{ color: 'var(--color-accent-400)' }}>
-              pow&gt;=5 tou&lt;=3
-            </code>
-          </div>
-        </div>
-        <div className="text-xs mt-3 space-y-1">
-          <p>
-            <strong style={{ color: 'var(--color-gray-300)' }}>Filtri:</strong> name (n), color (c), type (t), rarity (r), set (s), cmc/mana, power (pow), toughness (tou), text (o), tag, identity (id)
-          </p>
-          <p>
-            <strong style={{ color: 'var(--color-gray-300)' }}>Operatori:</strong> : (uguale), &gt; (maggiore), &lt; (minore), &gt;= (maggiore/uguale), &lt;= (minore/uguale)
-          </p>
+      <div className="mt-3 text-xs text-gray-400">
+        <div className="flex flex-wrap gap-2 justify-center">
+          <code className="glass rounded px-2 py-1" style={{ color: 'var(--color-accent-400)' }}>Lightning Bolt</code>
+          <code className="glass rounded px-2 py-1" style={{ color: 'var(--color-accent-400)' }}>Jace c:u</code>
+          <code className="glass rounded px-2 py-1" style={{ color: 'var(--color-accent-400)' }}>c:r t:creature cmc&gt;=3</code>
         </div>
       </div>
     </div>

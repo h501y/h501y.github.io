@@ -252,22 +252,14 @@ export default function App() {
               </div>
 
               {/* Placeholder Message */}
-              <div className="text-center glass p-12 rounded-xl max-w-lg">
-                <svg className="w-16 h-16 mx-auto mb-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="text-center glass p-8 rounded-xl max-w-md">
+                <svg className="w-12 h-12 mx-auto mb-3 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-                <h2 className="text-xl font-semibold mb-2">Cerca le tue carte</h2>
-                <p className="text-muted-foreground mb-4">
-                  Usa la search bar sopra o i filtri nella sidebar
+                <h2 className="text-lg font-semibold mb-2">Cerca le tue carte</h2>
+                <p className="text-sm text-muted-foreground">
+                  Totale: <span className="font-semibold" style={{ color: 'var(--color-accent-500)' }}>{stats.total_cards}</span> carte
                 </p>
-                <div className="text-sm text-muted-foreground space-y-1">
-                  <p className="text-xs">
-                    <code className="text-xs">Lightning Bolt</code>, <code className="text-xs">Jace c:u</code>, <code className="text-xs">c:r t:creature</code>
-                  </p>
-                  <p>
-                    Totale: <span className="font-semibold" style={{ color: 'var(--color-accent-500)' }}>{stats.total_cards}</span> carte
-                  </p>
-                </div>
               </div>
             </div>
           ) : (
