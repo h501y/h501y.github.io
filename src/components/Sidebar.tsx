@@ -166,7 +166,7 @@ export function Sidebar(props: SidebarProps) {
       </div>
 
       {/* Footer */}
-      <div className="p-4 border-t border-white/10 space-y-3">
+      <div className="p-3 border-t border-white/10 space-y-2">
         <div className="text-xs text-center" style={{ color: 'var(--color-gray-500)' }}>
           v{props.version || '1.0.0'}
           {props.exportedAt && (
@@ -184,9 +184,9 @@ export function Sidebar(props: SidebarProps) {
         </div>
 
         {/* WotC Fan Content Policy Disclaimer */}
-        <div className="text-xs text-center leading-relaxed" style={{ color: 'var(--color-gray-500)' }}>
-          <p className="mb-2">
-            Questo è un progetto fan-made non ufficiale permesso dalla{' '}
+        <div className="text-xs text-center leading-tight" style={{ color: 'var(--color-gray-500)' }}>
+          <p className="mb-1">
+            Progetto fan-made permesso dalla{' '}
             <a
               href="https://company.wizards.com/en/legal/fancontentpolicy"
               target="_blank"
@@ -197,12 +197,8 @@ export function Sidebar(props: SidebarProps) {
               Fan Content Policy
             </a>.
           </p>
-          <p style={{ color: 'var(--color-gray-600)', fontSize: '10px' }}>
-            Non approvato/sponsorizzato da Wizards of the Coast.
-            <br />
-            Parti dei materiali utilizzati sono proprietà di Wizards of the Coast.
-            <br />
-            ©Wizards of the Coast LLC.
+          <p style={{ color: 'var(--color-gray-600)', fontSize: '9px', lineHeight: '1.3' }}>
+            Non approvato da Wizards of the Coast. ©Wizards of the Coast LLC.
           </p>
         </div>
       </div>
