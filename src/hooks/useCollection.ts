@@ -112,16 +112,41 @@ export function useCollection() {
 
     if (activeColors.length > 0) {
       cards = cards.filter(card => {
-        const cardColors = card.colors ? JSON.parse(card.colors) : []
-
-        if (colorMode === 'exactly') {
-          return activeColors.length === cardColors.length &&
-            activeColors.every(c => cardColors.includes(c))
-        } else if (colorMode === 'including') {
-          return activeColors.some(c => cardColors.includes(c))
-        } else { // at_most
-          return cardColors.every((c: string) => activeColors.includes(c))
+        let cardColors: string[] = []
+        try {
+          cardColors = card.colors ? JSON.parse(card.colors) as string[] : []
+        } catch {
+          return false
         }
+
+        const isColorless = cardColors.length === 0
+        const hasColorlessFilter = activeColors.includes('C')
+        const queryColors = activeColors.filter(c => c !== 'C')
+
+        // CASO 1: Solo "C" selezionato → solo colorless
+        if (hasColorlessFilter && queryColors.length === 0) {
+          return isColorless
+        }
+
+        // CASO 2: Colori selezionati (con o senza "C")
+        if (queryColors.length > 0) {
+          if (colorMode === 'exactly') {
+            // Esatto: match preciso, colorless solo se "C" selezionato
+            if (isColorless) return hasColorlessFilter
+            return queryColors.length === cardColors.length &&
+              queryColors.every(c => cardColors.includes(c))
+          } else if (colorMode === 'including') {
+            // Include (At Least): deve avere tutti i colori, colorless solo se "C" selezionato
+            if (isColorless) return hasColorlessFilter
+            return queryColors.every(c => cardColors.includes(c))
+          } else { // at_most
+            // At Most (Coverage - Default Scryfall): colorless SEMPRE incluso
+            if (isColorless) return true
+            return cardColors.every((c: string) => queryColors.includes(c))
+          }
+        }
+
+        return false
       })
     }
 
@@ -132,8 +157,33 @@ export function useCollection() {
 
     if (activeIdentityColors.length > 0) {
       cards = cards.filter(card => {
-        const cardIdentity = card.color_identity ? JSON.parse(card.color_identity) : []
-        return activeIdentityColors.some(c => cardIdentity.includes(c))
+        let cardIdentity: string[] = []
+        try {
+          cardIdentity = card.color_identity ? JSON.parse(card.color_identity) as string[] : []
+        } catch {
+          return false
+        }
+
+        const isColorless = cardIdentity.length === 0
+        const hasColorlessFilter = activeIdentityColors.includes('C')
+        const queryColors = activeIdentityColors.filter(c => c !== 'C')
+
+        // CASO 1: Solo "C" selezionato → solo colorless
+        if (hasColorlessFilter && queryColors.length === 0) {
+          return isColorless
+        }
+
+        // CASO 2: Colori selezionati
+        if (queryColors.length > 0) {
+          // Color Identity usa logica "Coverage" (at_most)
+          // Colorless SEMPRE incluso (può andare in qualsiasi mazzo)
+          if (isColorless) return true
+
+          // Carte colorate: devono avere solo i colori selezionati (o meno)
+          return cardIdentity.every(c => queryColors.includes(c))
+        }
+
+        return false
       })
     }
 
