@@ -144,6 +144,19 @@ h501y.github.io/
 - Compatibile con tutti i browser moderni
 - Deploy automatico ad ogni `npm run deploy`
 
+## ⚖️ Legal / Fan Content Policy
+
+Questo progetto è **Fan Content non ufficiale** permesso dalla [Wizards of the Coast Fan Content Policy](https://company.wizards.com/en/legal/fancontentpolicy).
+
+**Non è approvato/sponsorizzato da Wizards of the Coast.**
+Parti dei materiali utilizzati sono proprietà di Wizards of the Coast.
+©Wizards of the Coast LLC.
+
+- ✅ Progetto gratuito e open source
+- ✅ Non commerciale (nessun guadagno/monetizzazione)
+- ✅ Solo per uso personale e gestione collezione
+- ✅ Rispetta copyright e trademark di WotC
+
 ## 📄 Versione
 
 v1.0.0 - Initial Release
