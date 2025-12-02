@@ -239,18 +239,20 @@ export default function App() {
           <div className="w-10" />
         </header>
 
-        {/* Card Grid */}
+        {/* Search Bar - Always visible */}
+        <div className={`glass ${hasActiveFilters ? 'p-3' : 'p-4'}`} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+          <div className={`${hasActiveFilters ? 'max-w-full' : 'max-w-2xl mx-auto'}`}>
+            <SearchBar
+              onSearch={handleQuerySearch}
+              placeholder="Cerca per nome (Lightning Bolt) o usa sintassi avanzata (c:r t:creature)..."
+            />
+          </div>
+        </div>
+
+        {/* Content Area */}
         <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
           {!hasActiveFilters ? (
-            <div className="flex flex-col items-center justify-center h-full gap-6">
-              {/* Search Bar */}
-              <div className="w-full max-w-2xl">
-                <SearchBar
-                  onSearch={handleQuerySearch}
-                  placeholder="Cerca per nome (Lightning Bolt) o usa sintassi avanzata (c:r t:creature)..."
-                />
-              </div>
-
+            <div className="flex items-center justify-center h-full">
               {/* Placeholder Message */}
               <div className="text-center glass p-8 rounded-xl max-w-md">
                 <svg className="w-12 h-12 mx-auto mb-3 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">

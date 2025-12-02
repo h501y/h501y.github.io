@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 
 export interface SearchBarProps {
   onSearch: (query: string) => void
@@ -7,29 +7,6 @@ export interface SearchBarProps {
 
 export function SearchBar({ onSearch, placeholder = 'Cerca carte...' }: SearchBarProps) {
   const [query, setQuery] = useState('')
-  const debounceTimerRef = useRef<number | null>(null)
-
-  // Debounced search effect
-  useEffect(() => {
-    // Clear previous timer
-    if (debounceTimerRef.current !== null) {
-      clearTimeout(debounceTimerRef.current)
-    }
-
-    // Set new timer for debounced search
-    debounceTimerRef.current = window.setTimeout(() => {
-      if (query.trim()) {
-        onSearch(query.trim())
-      }
-    }, 300) // 300ms debounce
-
-    // Cleanup on unmount
-    return () => {
-      if (debounceTimerRef.current !== null) {
-        clearTimeout(debounceTimerRef.current)
-      }
-    }
-  }, [query, onSearch])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
