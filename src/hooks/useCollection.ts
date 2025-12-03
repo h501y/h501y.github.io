@@ -58,7 +58,8 @@ export function useCollection() {
     async function loadData() {
       try {
         setIsLoading(true)
-        const response = await fetch('https://gist.githubusercontent.com/h501y/8a09b4a605cd230d3088a7e6eb2a558a/raw/b93ff4e14a5ae30b6a6f2e7128692d8ee464aebc/magic-collection.json')
+        // Use URL without hash to always get latest version
+        const response = await fetch('https://gist.githubusercontent.com/h501y/8a09b4a605cd230d3088a7e6eb2a558a/raw/magic-collection.json')
         if (!response.ok) {
           throw new Error('Failed to load collection data')
         }
