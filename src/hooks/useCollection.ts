@@ -58,7 +58,7 @@ export function useCollection() {
     async function loadData() {
       try {
         setIsLoading(true)
-        const response = await fetch('https://gist.githubusercontent.com/h501y/b0c8a991c13f90bad029841fc1a0cc6a/raw/6677546e54f2b0e6c69880571e9402972cb51e32/magic-collection.json')
+        const response = await fetch('https://gist.githubusercontent.com/h501y/8a09b4a605cd230d3088a7e6eb2a558a/raw/b93ff4e14a5ae30b6a6f2e7128692d8ee464aebc/magic-collection.json')
         if (!response.ok) {
           throw new Error('Failed to load collection data')
         }
