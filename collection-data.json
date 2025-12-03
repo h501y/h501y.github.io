@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "exported_at": "2025-12-02T17:36:03.196972700+00:00",
+  "exported_at": "2025-12-03T21:41:31.382945100+00:00",
   "stats": {
     "total_cards": 234,
     "unique_cards": 173,
@@ -39,6 +39,7 @@
       "date_added": "2025-12-02 16:53:22",
       "tags": null,
       "italian_name": "Manufattore dell'Accademia",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/2/f/2f5b4544-70d9-45ee-84a3-fa6253a53a82.jpg?1721429531",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -71,6 +72,7 @@
       "date_added": "2025-12-02 16:53:23",
       "tags": "[{\"name\":\"in lingua giapponese\",\"colorIndex\":6}]",
       "italian_name": "Serbatoio di Eterflusso",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/6/96b6b2e1-c3e6-464c-8a13-b15deb34e862.jpg?1576382939",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -103,6 +105,7 @@
       "date_added": "2025-12-02 17:02:04",
       "tags": null,
       "italian_name": "Aettir e Priwen",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/2/c/2ceea116-6197-45ec-a5a9-73588744b8a0.jpg?1748707104",
       "mana_cost": "{6}",
       "cmc": 6.0,
@@ -112,8 +115,8 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"5.11\",\"eur_foil\":\"6.15\",\"tix\":\"0.02\",\"usd\":\"6.20\",\"usd_etched\":null,\"usd_foil\":\"7.44\"}",
-      "edhrec_rank": 5074,
+      "prices": "{\"eur\":\"5.11\",\"eur_foil\":\"6.15\",\"usd\":\"5.86\",\"usd_foil\":\"7.51\"}",
+      "edhrec_rank": 5062,
       "collector_number": "253",
       "finishes": "[\"nonfoil\",\"foil\"]",
       "frame_effects": "[\"legendary\"]",
@@ -135,6 +138,7 @@
       "date_added": "2025-12-02 17:02:05",
       "tags": null,
       "italian_name": "Calderone dell'Anima di Agata",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/1/019b51b0-e5c6-4208-922b-7736686dddcd.jpg?1692939838",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -144,13 +148,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"25.65\",\"eur_foil\":\"38.11\",\"tix\":\"4.23\",\"usd\":\"26.60\",\"usd_etched\":null,\"usd_foil\":\"30.08\"}",
+      "prices": "{\"eur\":\"25.78\",\"eur_foil\":\"38.11\",\"usd\":\"26.70\",\"usd_foil\":\"30.08\"}",
       "edhrec_rank": 1309,
       "collector_number": "242",
       "finishes": "[\"nonfoil\",\"foil\"]",
       "frame_effects": "[\"legendary\"]",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1019,
@@ -167,6 +171,7 @@
       "date_added": "2025-12-02 16:53:24",
       "tags": "[{\"name\":\"in lingua cinese\",\"colorIndex\":6}]",
       "italian_name": "Altare della Demenza",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/6/169356e0-46dc-4096-8e66-36726454f104.jpg?1562202433",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -176,13 +181,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"9.54\",\"eur_foil\":\"14.10\",\"tix\":\"0.02\",\"usd\":\"10.51\",\"usd_etched\":null,\"usd_foil\":\"14.63\"}",
+      "prices": "{\"eur\":\"9.41\",\"eur_foil\":\"14.10\",\"usd\":\"10.30\",\"usd_foil\":\"14.63\"}",
       "edhrec_rank": 581,
       "collector_number": "218",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1020,
@@ -199,6 +204,7 @@
       "date_added": "2025-12-02 16:53:25",
       "tags": null,
       "italian_name": "Amuleto del Vigore",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/9/997bc933-ac30-477b-a4e1-5333b796a99d.jpg?1562292191",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -231,6 +237,7 @@
       "date_added": "2025-12-02 16:53:26",
       "tags": null,
       "italian_name": "Idolo di Pietra Antico",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/3/3/333f6334-f027-4bec-95d7-7af80508c4ca.jpg?1706241036",
       "mana_cost": "{10}",
       "cmc": 10.0,
@@ -240,13 +247,13 @@
       "color_identity": "[]",
       "power": "12",
       "toughness": "12",
-      "prices": "{\"eur\":\"0.34\",\"eur_foil\":null,\"tix\":\"0.52\",\"usd\":\"0.33\",\"usd_etched\":null,\"usd_foil\":null}",
+      "prices": "{\"eur\":\"0.33\",\"eur_foil\":null,\"usd\":\"0.33\",\"usd_foil\":null}",
       "edhrec_rank": 2480,
       "collector_number": "222",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 939,
@@ -263,6 +270,7 @@
       "date_added": "2025-12-02 16:51:36",
       "tags": null,
       "italian_name": "Tromba dell'Angelo",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/8/682158ea-04b3-4e43-9c88-91c04868956d.jpg?1723444258",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -295,6 +303,7 @@
       "date_added": "2025-12-02 16:53:27",
       "tags": null,
       "italian_name": "Ankh di Mishra",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/4/44135b17-69e7-4002-a6e0-d76f4c0c423b.jpg?1559603663",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -327,6 +336,7 @@
       "date_added": "2025-12-02 16:52:23",
       "tags": null,
       "italian_name": "Sigillo Arcano",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/3/d/3d994115-378d-4685-a5dc-e448831da434.jpg?1755356098",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -336,13 +346,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.73\",\"eur_foil\":null,\"tix\":\"0.04\",\"usd\":\"0.41\",\"usd_etched\":null,\"usd_foil\":null}",
+      "prices": "{\"eur\":\"0.72\",\"eur_foil\":null,\"usd\":\"0.40\",\"usd_foil\":null}",
       "edhrec_rank": 3,
       "collector_number": "53",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1023,
@@ -359,6 +369,7 @@
       "date_added": "2025-12-02 16:53:28",
       "tags": null,
       "italian_name": "Masticora di Argentum",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/7/9746e3ab-c0a6-46c1-a418-275b419962e4.jpg?1675957222",
       "mana_cost": "{5}",
       "cmc": 5.0,
@@ -391,6 +402,7 @@
       "date_added": "2025-12-02 16:53:29",
       "tags": null,
       "italian_name": "Vessillo dell'Affinità",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/1/a14c16c0-4053-46b0-8fa6-be8b4a7a1c8a.jpg?1730489076",
       "mana_cost": "{5}",
       "cmc": 5.0,
@@ -423,6 +435,7 @@
       "date_added": "2025-12-02 16:51:37",
       "tags": null,
       "italian_name": "Monolito di Basalto",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/7/97d8dbc9-d9f3-4e8e-95d2-27917c152a29.jpg?1686966313",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -455,6 +468,7 @@
       "date_added": "2025-12-02 16:53:30",
       "tags": null,
       "italian_name": "Collare del Basilisco",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/7/b/7b36fba7-71f7-4b7f-bde5-b3a9752ad21c.jpg?1730491131",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -464,11 +478,11 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"3.21\",\"eur_foil\":null,\"tix\":\"0.02\",\"usd\":\"4.57\",\"usd_etched\":null,\"usd_foil\":null}",
+      "prices": "{\"eur\":\"3.28\",\"eur_foil\":null,\"usd\":\"4.63\",\"usd_foil\":null}",
       "edhrec_rank": 265,
       "collector_number": "669",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
       "promo_types": "[\"startercollection\"]"
     },
@@ -487,6 +501,7 @@
       "date_added": "2025-12-02 16:53:31",
       "tags": null,
       "italian_name": "Lama del Capo Sanguinario",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/3/4/34e7bebf-1844-476c-a947-978393908fa2.jpg?1698988506",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -496,13 +511,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"4.91\",\"eur_foil\":null,\"tix\":\"2.65\",\"usd\":\"2.72\",\"usd_etched\":null,\"usd_foil\":null}",
-      "edhrec_rank": 2247,
+      "prices": "{\"eur\":\"4.89\",\"eur_foil\":null,\"usd\":\"2.84\",\"usd_foil\":null}",
+      "edhrec_rank": 2248,
       "collector_number": "300",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 941,
@@ -519,6 +534,7 @@
       "date_added": "2025-12-02 16:51:38",
       "tags": null,
       "italian_name": "Postazione Esplosiva",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/7/1/71e2f832-6601-4232-b250-fd1c88538fbd.jpg?1562877667",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -539,8 +555,8 @@
     {
       "id": 942,
       "name": "Bone Saw",
-      "edition": "Oath of the Gatewatch",
-      "edition_code": "ogw",
+      "edition": "The Brothers' War Retro Artifacts",
+      "edition_code": "BRR",
       "language": "English",
       "card_type": "Artifact — Equipment",
       "rarity": "C",
@@ -551,7 +567,8 @@
       "date_added": "2025-12-02 16:51:39",
       "tags": null,
       "italian_name": "Sega d'Osso",
-      "image_uris": "https://cards.scryfall.io/normal/front/d/c/dc3d19ff-b618-4b07-99a8-ea6e7ee72459.jpg?1562939274",
+      "needs_verification": false,
+      "image_uris": "https://cards.scryfall.io/normal/front/5/d/5d74a0f3-3db4-444c-a879-f3f3db2e27a0.jpg?1674091808",
       "mana_cost": "{0}",
       "cmc": 0.0,
       "type_line": "Artifact — Equipment",
@@ -583,6 +600,7 @@
       "date_added": "2025-12-02 16:51:40",
       "tags": null,
       "italian_name": "Monumento a Bontu",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/7/171a9a3f-6278-4921-9848-2b8459869d6c.jpg?1676318123",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -592,13 +610,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"3.85\",\"eur_foil\":null,\"tix\":\"1.13\",\"usd\":\"6.34\",\"usd_etched\":null,\"usd_foil\":null}",
-      "edhrec_rank": 671,
+      "prices": "{\"eur\":\"4.07\",\"eur_foil\":null,\"usd\":\"6.25\",\"usd_foil\":null}",
+      "edhrec_rank": 672,
       "collector_number": "179",
       "finishes": "[\"nonfoil\"]",
       "frame_effects": "[\"legendary\"]",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 997,
@@ -615,6 +633,7 @@
       "date_added": "2025-12-02 16:52:25",
       "tags": null,
       "italian_name": "Sigillo Boros",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/b/1bae1f86-4639-4424-b47b-fdc826bf6e97.jpg?1753108666",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -647,6 +666,7 @@
       "date_added": "2025-12-02 16:51:41",
       "tags": null,
       "italian_name": "Vesti della Confraternita",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/8/a/8a6439a6-288d-427e-b14b-a99e8ef8c5cd.jpg?1721424191",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -679,6 +699,7 @@
       "date_added": "2025-12-02 16:51:42",
       "tags": null,
       "italian_name": "Catodione",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/3/13ddba34-e627-4f4c-b78c-ea0c48a22537.jpg?1599708789",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -688,13 +709,13 @@
       "color_identity": "[]",
       "power": "3",
       "toughness": "3",
-      "prices": "{\"eur\":\"0.06\",\"eur_foil\":\"0.15\",\"tix\":\"0.03\",\"usd\":\"0.12\",\"usd_etched\":null,\"usd_foil\":\"0.18\"}",
-      "edhrec_rank": 8794,
+      "prices": "{\"eur\":\"0.07\",\"eur_foil\":\"0.15\",\"usd\":\"0.12\",\"usd_foil\":\"0.18\"}",
+      "edhrec_rank": 8800,
       "collector_number": "237",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 998,
@@ -711,6 +732,7 @@
       "date_added": "2025-12-02 16:52:26",
       "tags": null,
       "italian_name": "Diamante della Cenere",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/4/44c435b6-4010-4bb6-b645-67732b1ebeab.jpg?1674138916",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -743,6 +765,7 @@
       "date_added": "2025-12-02 16:53:32",
       "tags": null,
       "italian_name": "Lanterna Cromatica",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/9/69d76fe8-3ef1-491f-a69f-560f11611e42.jpg?1738543709",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -775,6 +798,7 @@
       "date_added": "2025-12-02 17:02:06",
       "tags": null,
       "italian_name": "Livellatore Urbano",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/7/67a87278-4c82-4056-8354-253d86b0ef3d.jpg?1674421950",
       "mana_cost": "{8}",
       "cmc": 8.0,
@@ -807,6 +831,7 @@
       "date_added": "2025-12-02 16:51:43",
       "tags": null,
       "italian_name": "Orologio dei Presagi",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/f/0ffce71b-eb60-4649-a62b-a1b4acaa9d2d.jpg?1562875485",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -839,6 +864,7 @@
       "date_added": "2025-12-02 16:52:27",
       "tags": null,
       "italian_name": "Sfera del Comandante",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/4/a4ce6b63-0b38-4582-94d5-c733af087038.jpg?1726285297",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -871,6 +897,7 @@
       "date_added": "2025-12-02 17:02:20",
       "tags": null,
       "italian_name": "Shuriken del Conformatore",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/1/019615fa-4bec-41e8-9c4c-2c6f91bdefb2.jpg?1748704555",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -880,8 +907,8 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.47\",\"eur_foil\":null,\"tix\":null,\"usd\":\"0.41\",\"usd_etched\":null,\"usd_foil\":null}",
-      "edhrec_rank": 5927,
+      "prices": "{\"eur\":\"0.50\",\"eur_foil\":null,\"usd\":\"0.34\",\"usd_foil\":null}",
+      "edhrec_rank": 5907,
       "collector_number": "98",
       "finishes": "[\"nonfoil\",\"foil\"]",
       "frame_effects": "[\"legendary\"]",
@@ -903,6 +930,7 @@
       "date_added": "2025-12-02 16:51:44",
       "tags": null,
       "italian_name": "Stretta Contagiosa",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/a/0a5bd288-0488-4354-a201-717bdaa10d44.jpg?1708743124",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -935,6 +963,7 @@
       "date_added": "2025-12-02 16:53:33",
       "tags": null,
       "italian_name": "Macchina del Contagio",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/c/dce72636-08e4-484e-ad81-4d1597a31ffb.jpg?1576030799",
       "mana_cost": "{6}",
       "cmc": 6.0,
@@ -967,6 +996,7 @@
       "date_added": "2025-12-02 16:51:45",
       "tags": null,
       "italian_name": "Sugginucleo",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/0/00d9dd37-aad3-46bd-ac9b-140974c8dcaa.jpg?1752945091",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -976,13 +1006,13 @@
       "color_identity": "[]",
       "power": "1",
       "toughness": "1",
-      "prices": "{\"eur\":\"0.23\",\"eur_foil\":null,\"tix\":\"0.04\",\"usd\":\"0.10\",\"usd_etched\":null,\"usd_foil\":null}",
-      "edhrec_rank": 7062,
+      "prices": "{\"eur\":\"0.20\",\"eur_foil\":null,\"usd\":\"0.09\",\"usd_foil\":null}",
+      "edhrec_rank": 7054,
       "collector_number": "132",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1001,
@@ -999,6 +1029,7 @@
       "date_added": "2025-12-02 16:52:28",
       "tags": null,
       "italian_name": "Ponte Levatoio in Caduta",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/1/018257cf-8981-4691-92ab-6a33f77c9680.jpg?1743207297",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1008,13 +1039,13 @@
       "color_identity": "[]",
       "power": "0",
       "toughness": "4",
-      "prices": "{\"eur\":\"0.37\",\"eur_foil\":null,\"tix\":\"0.18\",\"usd\":\"0.27\",\"usd_etched\":null,\"usd_foil\":null}",
+      "prices": "{\"eur\":\"0.37\",\"eur_foil\":null,\"usd\":\"0.26\",\"usd_foil\":null}",
       "edhrec_rank": 985,
       "collector_number": "316",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1029,
@@ -1031,6 +1062,7 @@
       "date_added": "2025-12-02 16:53:34",
       "tags": null,
       "italian_name": "Spazio Angusto",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/2/0/202c628d-ae86-4a87-94bb-d06574cda9ce.jpg?1675202326",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -1063,6 +1095,7 @@
       "date_added": "2025-12-02 17:02:07",
       "tags": null,
       "italian_name": "Crogiolo di Mondi",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/7/f/7f4893ef-f983-418b-b7a4-5f073c844545.jpg?1673149345",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -1095,6 +1128,7 @@
       "date_added": "2025-12-02 17:02:21",
       "tags": null,
       "italian_name": "Forgia di Darksteel",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/2/c/2c95a0a1-9c2c-44df-b0fe-c22efb6d87ee.jpg?1562827453",
       "mana_cost": "{9}",
       "cmc": 9.0,
@@ -1127,6 +1161,7 @@
       "date_added": "2025-12-02 16:51:46",
       "tags": null,
       "italian_name": "Reliquia di Darksteel",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/f/0fd8c918-62d9-41be-a3e1-32ddac71b7e7.jpg?1562875578",
       "mana_cost": "{0}",
       "cmc": 0.0,
@@ -1136,13 +1171,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.71\",\"eur_foil\":\"6.31\",\"tix\":\"0.03\",\"usd\":\"1.34\",\"usd_etched\":null,\"usd_foil\":\"8.69\"}",
-      "edhrec_rank": 8276,
+      "prices": "{\"eur\":\"0.74\",\"eur_foil\":\"6.50\",\"usd\":\"1.34\",\"usd_foil\":\"8.69\"}",
+      "edhrec_rank": 8267,
       "collector_number": "134",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1117,
@@ -1159,6 +1194,7 @@
       "date_added": "2025-12-02 17:02:22",
       "tags": null,
       "italian_name": "Griglia di Difesa",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/8/f875a0ff-7ed8-46a7-b346-e378d5e7d512.jpg?1674091874",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1191,6 +1227,7 @@
       "date_added": "2025-12-02 16:52:29",
       "tags": null,
       "italian_name": "Sigillo Dimir",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/3/c3af24ce-b1ab-4137-9222-a4080acae928.jpg?1706240208",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1200,13 +1237,13 @@
       "color_identity": "[\"B\",\"U\"]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.59\",\"eur_foil\":null,\"tix\":\"0.01\",\"usd\":\"0.54\",\"usd_etched\":null,\"usd_foil\":null}",
+      "prices": "{\"eur\":\"0.71\",\"eur_foil\":null,\"usd\":\"0.54\",\"usd_foil\":null}",
       "edhrec_rank": 129,
       "collector_number": "221",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1030,
@@ -1223,6 +1260,7 @@
       "date_added": "2025-12-02 16:53:34",
       "tags": null,
       "italian_name": "Flauto Sabotatore",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/5/c/5cad8671-4761-4014-a8a3-af45627e6e79.jpg?1717470370",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1255,6 +1293,7 @@
       "date_added": "2025-12-02 16:53:35",
       "tags": null,
       "italian_name": "Porta sul Nulla",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/a/caec3c43-1224-4530-90ed-10c81699fb7d.jpg?1683210693",
       "mana_cost": "{5}",
       "cmc": 5.0,
@@ -1287,6 +1326,7 @@
       "date_added": "2025-12-02 16:53:36",
       "tags": null,
       "italian_name": "Lama di Fuoco Draconico",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/3/031afea3-fbfb-4663-a8cc-9b7eb7b16020.jpg?1743204949",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -1296,13 +1336,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.86\",\"eur_foil\":\"1.10\",\"tix\":\"0.02\",\"usd\":\"1.04\",\"usd_etched\":null,\"usd_foil\":\"1.40\"}",
-      "edhrec_rank": 3138,
+      "prices": "{\"eur\":\"0.86\",\"eur_foil\":\"1.10\",\"usd\":\"1.03\",\"usd_foil\":\"1.38\"}",
+      "edhrec_rank": 3135,
       "collector_number": "240",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1033,
@@ -1319,6 +1359,7 @@
       "date_added": "2025-12-02 16:53:37",
       "tags": null,
       "italian_name": "Medaglione di Smeraldo",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/5/d/5ddf44fe-9e4e-42a6-a6f8-11ada3ce8a94.jpg?1717013754",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1351,6 +1392,7 @@
       "date_added": "2025-12-02 16:51:47",
       "tags": null,
       "italian_name": "Camera dell'Energia",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/4/f4e2f775-75dd-4c18-a378-b503b29a6388.jpg?1562270486",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1383,6 +1425,7 @@
       "date_added": "2025-12-02 17:02:08",
       "tags": null,
       "italian_name": "Vascello dell'Eternità",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/9/a9222e18-41b3-423f-8715-305a0d8fd410.jpg?1562615295",
       "mana_cost": "{6}",
       "cmc": 6.0,
@@ -1415,6 +1458,7 @@
       "date_added": "2025-12-02 16:51:48",
       "tags": null,
       "italian_name": "Calice Infinito",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/e/4/e4ed0052-d6dd-4f69-8313-10863baefac9.jpg?1752945133",
       "mana_cost": "{0}",
       "cmc": 0.0,
@@ -1447,6 +1491,7 @@
       "date_added": "2025-12-02 16:53:38",
       "tags": null,
       "italian_name": "Corazzata Polverizzante",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/5/5/5541cdd2-84a6-4667-83eb-fffbe5b3cd3d.jpg?1755341322",
       "mana_cost": "{8}",
       "cmc": 8.0,
@@ -1479,6 +1524,7 @@
       "date_added": "2025-12-02 16:51:49",
       "tags": null,
       "italian_name": "Pietra Fellwar",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/e/ce55e00c-cd95-48eb-986e-edf5125f3534.jpg?1743207310",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1511,7 +1557,8 @@
       "date_added": "2025-12-02 16:52:30",
       "tags": null,
       "italian_name": "Diamante del Fuoco",
-      "image_uris": "https://cards.scryfall.io/normal/front/5/a/5a561484-438b-4ce9-911e-97078ac5b0fa.jpg?1674137837",
+      "needs_verification": false,
+      "image_uris": "https://cards.scryfall.io/normal/front/8/1/81fa8865-c600-4d8d-976d-789cd565802e.jpg?1674138939",
       "mana_cost": "{2}",
       "cmc": 2.0,
       "type_line": "Artifact",
@@ -1543,6 +1590,7 @@
       "date_added": "2025-12-02 16:51:50",
       "tags": null,
       "italian_name": "Ispettore della Fonderia",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/6/16debeb1-fb2b-4172-b6da-726416d4fb38.jpg?1689999559",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -1552,13 +1600,13 @@
       "color_identity": "[]",
       "power": "3",
       "toughness": "2",
-      "prices": "{\"eur\":\"0.18\",\"eur_foil\":\"0.33\",\"tix\":\"0.04\",\"usd\":\"0.30\",\"usd_etched\":null,\"usd_foil\":\"1.23\"}",
+      "prices": "{\"eur\":\"0.19\",\"eur_foil\":\"0.33\",\"usd\":\"0.29\",\"usd_foil\":\"1.23\"}",
       "edhrec_rank": 252,
       "collector_number": "385",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1004,
@@ -1575,6 +1623,7 @@
       "date_added": "2025-12-02 16:52:30",
       "tags": null,
       "italian_name": "Ranella",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/2/b2991802-e313-40de-b167-0ede5efff101.jpg?1562266618",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -1607,6 +1656,7 @@
       "date_added": "2025-12-02 16:53:39",
       "tags": null,
       "italian_name": "Macchina Gemella",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/2/e/2e03e05b-011b-4695-950b-98dd7643b8a0.jpg?1562636055",
       "mana_cost": "{6}",
       "cmc": 6.0,
@@ -1639,6 +1689,7 @@
       "date_added": "2025-12-02 16:51:51",
       "tags": null,
       "italian_name": "Grimorio di Geth",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/a/0a21d76d-d86c-4348-be45-f65167d2b5a9.jpg?1562635283",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -1648,13 +1699,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"1.83\",\"eur_foil\":\"4.43\",\"tix\":\"0.03\",\"usd\":\"8.21\",\"usd_etched\":null,\"usd_foil\":\"14.00\"}",
-      "edhrec_rank": 2362,
+      "prices": "{\"eur\":\"1.82\",\"eur_foil\":\"4.43\",\"usd\":\"8.15\",\"usd_foil\":\"14.00\"}",
+      "edhrec_rank": 2361,
       "collector_number": "123",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1005,
@@ -1671,6 +1722,7 @@
       "date_added": "2025-12-02 16:52:31",
       "tags": null,
       "italian_name": "Bruto di Pan di Zenzero",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/9/09a4578a-7dc6-4da3-93ee-913b10be5740.jpg?1692939880",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -1680,13 +1732,13 @@
       "color_identity": "[]",
       "power": "1",
       "toughness": "1",
-      "prices": "{\"eur\":\"0.25\",\"eur_foil\":\"0.42\",\"tix\":\"0.03\",\"usd\":\"0.21\",\"usd_etched\":null,\"usd_foil\":\"0.32\"}",
-      "edhrec_rank": 1507,
+      "prices": "{\"eur\":\"0.25\",\"eur_foil\":\"0.42\",\"usd\":\"0.19\",\"usd_foil\":\"0.31\"}",
+      "edhrec_rank": 1508,
       "collector_number": "246",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 955,
@@ -1703,6 +1755,7 @@
       "date_added": "2025-12-02 16:51:52",
       "tags": null,
       "italian_name": "Sigillo Golgari",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/5/95103b4c-d0c0-40fa-9ddd-c7416455ca0c.jpg?1728606720",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1735,6 +1788,7 @@
       "date_added": "2025-12-02 16:53:40",
       "tags": null,
       "italian_name": "Graaz, Juggernaut Inarrestabile",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/e/0/e0e73b63-17cc-4dca-abd6-728b74bc37a8.jpg?1675957233",
       "mana_cost": "{8}",
       "cmc": 8.0,
@@ -1767,6 +1821,7 @@
       "date_added": "2025-12-02 16:53:41",
       "tags": null,
       "italian_name": "Gabbia del Becchino",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/a/0a135e09-b534-4836-9a10-3a9a4a9f8c53.jpg?1592517646",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -1776,13 +1831,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"1.89\",\"eur_foil\":\"4.27\",\"tix\":\"0.35\",\"usd\":\"2.32\",\"usd_etched\":null,\"usd_foil\":\"7.31\"}",
-      "edhrec_rank": 1784,
+      "prices": "{\"eur\":\"1.93\",\"eur_foil\":\"4.25\",\"usd\":\"2.22\",\"usd_foil\":\"7.31\"}",
+      "edhrec_rank": 1787,
       "collector_number": "227",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1048,
@@ -1799,6 +1854,7 @@
       "date_added": "2025-12-02 16:53:50",
       "tags": null,
       "italian_name": "Errante Portaturbinanti",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/7/7/773916fd-060e-4abc-a060-e18768807571.jpg?1599769039",
       "mana_cost": "{X}{X}",
       "cmc": 0.0,
@@ -1808,8 +1864,8 @@
       "color_identity": "[]",
       "power": "0",
       "toughness": "0",
-      "prices": "{\"eur\":null,\"eur_foil\":\"1.92\",\"tix\":null,\"usd\":null,\"usd_etched\":null,\"usd_foil\":\"9.19\"}",
-      "edhrec_rank": 1652,
+      "prices": "{\"eur\":null,\"eur_foil\":\"2.07\",\"usd\":null,\"usd_foil\":\"9.19\"}",
+      "edhrec_rank": 1651,
       "collector_number": "2",
       "finishes": "[\"foil\"]",
       "frame_effects": "[\"inverted\"]",
@@ -1831,6 +1887,7 @@
       "date_added": "2025-12-02 16:53:41",
       "tags": null,
       "italian_name": "Cimelio Affilato",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/9/49fe8b13-3f83-4a35-aa2d-2292b96f3d3e.jpg?1698988513",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -1863,6 +1920,7 @@
       "date_added": "2025-12-02 16:53:42",
       "tags": null,
       "italian_name": "Elmo della Moltitudine",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/d/1d65d20c-09e5-4139-838b-7e0e48eb2b2b.jpg?1666094567",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -1895,6 +1953,7 @@
       "date_added": "2025-12-02 16:53:43",
       "tags": null,
       "italian_name": "Corda di Hithlain",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/b/bbe6e907-eafb-402c-8b8f-4c01fb168a0b.jpg?1686964419",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1927,6 +1986,7 @@
       "date_added": "2025-12-02 16:53:44",
       "tags": null,
       "italian_name": "Idolo dell'Oblio",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/b/cbc25725-1485-4d98-abe1-906520f868d8.jpg?1743207313",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -1959,6 +2019,7 @@
       "date_added": "2025-12-02 16:53:45",
       "tags": null,
       "italian_name": "Statuaria Ispiratrice",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/f/4f7e4c0a-683b-4b22-9ea5-ed6470b8b1d7.jpg?1706241061",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -1991,6 +2052,7 @@
       "date_added": "2025-12-02 16:51:53",
       "tags": null,
       "italian_name": "Scettro Isocrono",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/2/d25d55a8-78e2-4f89-8456-39b1a8d803ca.jpg?1592713380",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2023,6 +2085,7 @@
       "date_added": "2025-12-02 16:53:46",
       "tags": null,
       "italian_name": "Aquilone del Viaggiatore",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/5/3/5304ad0c-47ab-45da-a44f-0a80d1e2ea28.jpg?1674091966",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2055,6 +2118,7 @@
       "date_added": "2025-12-02 17:02:09",
       "tags": null,
       "italian_name": "Karn, Eredità Riforgiata",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/2/4219b5ea-a252-4d76-a60a-9674340e8ed3.jpg?1684340871",
       "mana_cost": "{5}",
       "cmc": 5.0,
@@ -2087,6 +2151,7 @@
       "date_added": "2025-12-02 16:51:54",
       "tags": null,
       "italian_name": "Stivali dallo Sperone Lavico",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/e/5/e50709de-e6ef-4dbc-af1e-290fed279f34.jpg?1712356267",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -2119,6 +2184,7 @@
       "date_added": "2025-12-02 17:02:23",
       "tags": null,
       "italian_name": "Liberator, Tottero da Guerra di Urza",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/3/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1674421980",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2151,6 +2217,7 @@
       "date_added": "2025-12-02 16:51:55",
       "tags": null,
       "italian_name": "Schinieri dei Fulmini",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/8/b/8b59b12c-fde5-4f19-a357-e09f06f490cc.jpg?1743206077",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2183,6 +2250,7 @@
       "date_added": "2025-12-02 16:53:47",
       "tags": null,
       "italian_name": "Fiore di Loto",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/b/db89ae4d-1cc2-41d8-a4de-a54b958c4429.jpg?1619398986",
       "mana_cost": "",
       "cmc": 0.0,
@@ -2215,6 +2283,7 @@
       "date_added": "2025-12-02 17:02:34",
       "tags": null,
       "italian_name": "Petalo di Loto",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/c/6c877da3-68fa-41d0-8a24-8c79fcd8ecc1.jpg?1562054466",
       "mana_cost": "{0}",
       "cmc": 0.0,
@@ -2247,6 +2316,7 @@
       "date_added": "2025-12-02 17:02:10",
       "tags": null,
       "italian_name": "Luxior, Dono di Giada",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/6/162741b5-4220-4280-93cc-c78a45e37f84.jpg?1675618249",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -2279,6 +2349,7 @@
       "date_added": "2025-12-02 17:02:24",
       "tags": null,
       "italian_name": "Scettro del Magistrato",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/e/c/ecf1f24f-d910-4ec6-95d2-0ecaf9f051aa.jpg?1741191325",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2311,6 +2382,7 @@
       "date_added": "2025-12-02 16:53:48",
       "tags": null,
       "italian_name": "Marvin, Mimic Omicida",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/6/66898970-b99b-48f2-9240-68c301c95500.jpg?1726286819",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2343,6 +2415,7 @@
       "date_added": "2025-12-02 16:53:49",
       "tags": null,
       "italian_name": "Nexus del Bosco delle Maschere",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/a/9a8456d9-30dd-4acf-9255-e9540886df37.jpg?1721429602",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -2375,6 +2448,7 @@
       "date_added": "2025-12-02 17:02:25",
       "tags": null,
       "italian_name": "Tomo Cervellotico",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/4/f45072cd-e3f2-4090-b984-50ec8d360bf2.jpg?1730491155",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2384,11 +2458,11 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.32\",\"eur_foil\":null,\"tix\":\"0.02\",\"usd\":\"0.24\",\"usd_etched\":null,\"usd_foil\":null}",
-      "edhrec_rank": 6105,
+      "prices": "{\"eur\":\"0.31\",\"eur_foil\":null,\"usd\":\"0.24\",\"usd_foil\":null}",
+      "edhrec_rank": 6106,
       "collector_number": "676",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
       "promo_types": "[\"startercollection\"]"
     },
@@ -2407,6 +2481,7 @@
       "date_added": "2025-12-02 16:54:30",
       "tags": null,
       "italian_name": "Memnito",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/6/469cc4e0-49c0-4009-97ea-28e44addec69.jpg?1562817049",
       "mana_cost": "{0}",
       "cmc": 0.0,
@@ -2439,6 +2514,7 @@
       "date_added": "2025-12-02 16:53:51",
       "tags": null,
       "italian_name": "Mimic Metallico",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/9/b91213fe-b0f0-43fe-ad50-798f33ac698a.jpg?1605329871",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2471,6 +2547,7 @@
       "date_added": "2025-12-02 16:53:52",
       "tags": null,
       "italian_name": "Vasca del Mimic",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/3/93d1c972-2621-4420-adae-cec1da3f965f.jpg?1698988054",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2503,6 +2580,7 @@
       "date_added": "2025-12-02 16:51:56",
       "tags": null,
       "italian_name": "Pietra della Mente",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/1/f1f616f2-d69d-4763-8ff0-3eb05a543926.jpg?1726285311",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2535,6 +2613,7 @@
       "date_added": "2025-12-02 16:53:53",
       "tags": null,
       "italian_name": "Specchio dei Miraggi",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/b/cb1252c2-b951-4125-93a2-9282b607b6a4.jpg?1690005610",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2567,6 +2646,7 @@
       "date_added": "2025-12-02 16:53:54",
       "tags": null,
       "italian_name": "Rifugio dei Mirran",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/7/d76fe2f2-ce2c-49e4-9f00-89c82f2fae8d.jpg?1675957237",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2599,6 +2679,7 @@
       "date_added": "2025-12-02 16:53:55",
       "tags": null,
       "italian_name": "Scatola di Specchi",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/5/d507daa3-3f16-4ab1-81ea-794e5bb488fc.jpg?1654568747",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2631,6 +2712,7 @@
       "date_added": "2025-12-02 16:51:57",
       "tags": null,
       "italian_name": "Bolla di Mishra",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/5/45bbbf9b-8fee-4c32-a513-02dac6ac8a39.jpg?1669300401",
       "mana_cost": "{0}",
       "cmc": 0.0,
@@ -2640,13 +2722,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"1.49\",\"eur_foil\":\"2.39\",\"tix\":\"14.94\",\"usd\":\"1.83\",\"usd_etched\":null,\"usd_foil\":\"2.07\"}",
-      "edhrec_rank": 1113,
+      "prices": "{\"eur\":\"1.51\",\"eur_foil\":\"2.35\",\"usd\":\"1.77\",\"usd_foil\":\"2.01\"}",
+      "edhrec_rank": 1111,
       "collector_number": "274",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1054,
@@ -2663,6 +2745,7 @@
       "date_added": "2025-12-02 16:53:56",
       "tags": null,
       "italian_name": "Cotta di Mithril",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/f/0fd1fc09-a09d-45e6-8a07-3a8a83b4e6ec.jpg?1686970224",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2695,6 +2778,7 @@
       "date_added": "2025-12-02 17:02:26",
       "tags": null,
       "italian_name": "Golem di Micosinti",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/3/c3200fa2-182f-4515-b326-ab4fdb95c8c1.jpg?1562879547",
       "mana_cost": "{11}",
       "cmc": 11.0,
@@ -2727,6 +2811,7 @@
       "date_added": "2025-12-02 17:02:11",
       "tags": null,
       "italian_name": "Traliccio di Micosinti",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/4/94f89714-3b26-46a2-b9a8-3e664f391cd9.jpg?1763579526",
       "mana_cost": "{6}",
       "cmc": 6.0,
@@ -2759,6 +2844,7 @@
       "date_added": "2025-12-02 16:51:58",
       "tags": null,
       "italian_name": "Myr Convertito",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/d/9df0adcf-7ad0-4d70-8dcd-28f69471495b.jpg?1675957241",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2791,6 +2877,7 @@
       "date_added": "2025-12-02 16:52:33",
       "tags": null,
       "italian_name": "Myr da Riporto",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/7/f/7f0149d4-0731-474a-a1c3-28c25e486c14.jpg?1599709634",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2823,6 +2910,7 @@
       "date_added": "2025-12-02 16:53:57",
       "tags": null,
       "italian_name": "Ciste Urticante",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/a/0a7cb0f8-2946-4b00-a192-0b31c8e1ec5c.jpg?1706241070",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2832,13 +2920,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"1.25\",\"eur_foil\":null,\"tix\":\"0.15\",\"usd\":\"2.12\",\"usd_etched\":null,\"usd_foil\":null}",
-      "edhrec_rank": 896,
+      "prices": "{\"eur\":\"1.29\",\"eur_foil\":null,\"usd\":\"2.28\",\"usd_foil\":null}",
+      "edhrec_rank": 897,
       "collector_number": "233",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1056,
@@ -2855,6 +2943,7 @@
       "date_added": "2025-12-02 16:53:58",
       "tags": null,
       "italian_name": "Lanciarazzi Nuka-Nuke",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/8/68d5835b-c206-4884-bdcf-38c7cdc703f4.jpg?1708742755",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2887,6 +2976,7 @@
       "date_added": "2025-12-02 16:53:58",
       "tags": null,
       "italian_name": "Pietra dell'Oblio",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/0/f0cd5548-ce7b-493a-8119-62f000839e4d.jpg?1673485409",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2919,6 +3009,7 @@
       "date_added": "2025-12-02 16:51:59",
       "tags": null,
       "italian_name": "Monumento a Oketra",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/7/a7f1d5a6-bdf2-4b12-b11e-70f58b59dd80.jpg?1676318142",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -2951,6 +3042,7 @@
       "date_added": "2025-12-02 16:54:31",
       "tags": null,
       "italian_name": "Ornitottero",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/3/0/305078a5-ac18-4721-bba2-3434eba5b1cf.jpg?1691675959",
       "mana_cost": "{0}",
       "cmc": 0.0,
@@ -2983,6 +3075,7 @@
       "date_added": "2025-12-02 16:52:34",
       "tags": null,
       "italian_name": "Ornitottero del Paradiso",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/8/18bbdc6c-b6c9-4f89-8f0a-6266e53c1fb9.jpg?1690005658",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -2992,13 +3085,13 @@
       "color_identity": "[]",
       "power": "0",
       "toughness": "2",
-      "prices": "{\"eur\":\"0.48\",\"eur_foil\":null,\"tix\":\"0.07\",\"usd\":\"4.69\",\"usd_etched\":null,\"usd_foil\":null}",
+      "prices": "{\"eur\":\"0.49\",\"eur_foil\":null,\"usd\":\"4.91\",\"usd_foil\":null}",
       "edhrec_rank": 228,
       "collector_number": "966",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 964,
@@ -3015,6 +3108,7 @@
       "date_added": "2025-12-02 16:52:00",
       "tags": null,
       "italian_name": "Myr di Palladio",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/7/f7c6aba3-38c3-45d1-83e1-40829eb07862.jpg?1690005669",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -3047,6 +3141,7 @@
       "date_added": "2025-12-02 16:53:59",
       "tags": null,
       "italian_name": "Panarmonico",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/d/1d92b7dd-1f63-4f34-87ca-01a0eaa7b3a1.jpg?1708743155",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -3079,6 +3174,7 @@
       "date_added": "2025-12-02 16:54:31",
       "tags": null,
       "italian_name": "Stendardo Rappezzato",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/8/a8a982c8-bc08-44ba-b3ed-9e4b124615d6.jpg?1721427285",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -3111,6 +3207,7 @@
       "date_added": "2025-12-02 16:54:00",
       "tags": null,
       "italian_name": "Medaglione di Perla",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/2/1225264f-b298-4b56-b208-c5da87bd6867.jpg?1717013779",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3120,13 +3217,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"2.22\",\"eur_foil\":\"2.40\",\"tix\":\"0.02\",\"usd\":\"2.96\",\"usd_etched\":null,\"usd_foil\":\"3.85\"}",
+      "prices": "{\"eur\":\"2.24\",\"eur_foil\":\"2.84\",\"usd\":\"2.90\",\"usd_foil\":\"3.99\"}",
       "edhrec_rank": 543,
       "collector_number": "294",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1010,
@@ -3143,6 +3240,7 @@
       "date_added": "2025-12-02 16:52:35",
       "tags": null,
       "italian_name": "Sfarfallante",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/8/4892c152-1f4a-4616-8e7f-0ca4911e621a.jpg?1562829688",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3175,6 +3273,7 @@
       "date_added": "2025-12-02 16:52:01",
       "tags": null,
       "italian_name": "Condotto di Potere",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/4/b4634637-ba33-4849-b647-d33018a02f39.jpg?1673485439",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3207,6 +3306,7 @@
       "date_added": "2025-12-02 17:02:27",
       "tags": null,
       "italian_name": "Primal Amulet // Primal Wellspring",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/4/d4d379b5-7f56-4a7d-a4ac-131fc3d579c6.jpg?1562564625",
       "mana_cost": null,
       "cmc": 4.0,
@@ -3239,6 +3339,7 @@
       "date_added": "2025-12-02 16:54:01",
       "tags": null,
       "italian_name": "Psicosi Strisciante",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/0/d0f42a19-c180-45b1-9f4c-787cf3a4a649.jpg?1706241075",
       "mana_cost": "{5}",
       "cmc": 5.0,
@@ -3271,6 +3372,7 @@
       "date_added": "2025-12-02 16:54:02",
       "tags": null,
       "italian_name": "Richiesta di Riscatto",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/8/8/88158a11-a44e-49b4-8ae3-d81c14265802.jpg?1706240521",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -3303,6 +3405,7 @@
       "date_added": "2025-12-02 16:54:03",
       "tags": null,
       "italian_name": "Nave di Ricognizione Theta",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/2/1/21aa59d3-e786-4ba0-9802-01b57597cda2.jpg?1708742768",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -3335,6 +3438,7 @@
       "date_added": "2025-12-02 16:54:04",
       "tags": null,
       "italian_name": "Medaglione di Rubino",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/3/630febf5-58ff-4dab-a5a8-575ebc5435a6.jpg?1717013787",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3367,6 +3471,7 @@
       "date_added": "2025-12-02 16:54:05",
       "tags": null,
       "italian_name": "Medaglione di Zaffiro",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/7/a77850b2-6478-449e-bdb9-5b92650e3504.jpg?1717013795",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3399,6 +3504,7 @@
       "date_added": "2025-12-02 16:54:06",
       "tags": null,
       "italian_name": "Lottatore Mangicarogne",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/f/afd0ba67-cbb7-49fe-83a0-02e85a37d9d6.jpg?1688125584",
       "mana_cost": "{6}",
       "cmc": 6.0,
@@ -3431,6 +3537,7 @@
       "date_added": "2025-12-02 16:54:07",
       "tags": null,
       "italian_name": "Pergamena del Fato",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/7/476d509f-efc0-4138-8dce-23fa6321279c.jpg?1726285319",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -3440,13 +3547,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.19\",\"eur_foil\":null,\"tix\":\"1.31\",\"usd\":\"0.12\",\"usd_etched\":null,\"usd_foil\":null}",
-      "edhrec_rank": 3603,
+      "prices": "{\"eur\":\"0.19\",\"eur_foil\":null,\"usd\":\"0.12\",\"usd_foil\":null}",
+      "edhrec_rank": 3605,
       "collector_number": "251",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1067,
@@ -3463,6 +3570,7 @@
       "date_added": "2025-12-02 16:54:08",
       "tags": null,
       "italian_name": "Acciaio da Scolpire",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/1/d1958f01-77e9-4976-b7f8-f9b62aa78edc.jpg?1697184333",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -3495,6 +3603,7 @@
       "date_added": "2025-12-02 16:54:09",
       "tags": null,
       "italian_name": "Meridiana del Veggente",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/9/491b8613-d5cd-4749-9c1b-d27a388c616a.jpg?1608917875",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -3527,6 +3636,7 @@
       "date_added": "2025-12-02 16:52:02",
       "tags": null,
       "italian_name": "Cappa delle Profezie del Sensei",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/e/5/e5142b7a-e580-4737-a4aa-2590f6610ceb.jpg?1673149430",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -3559,6 +3669,7 @@
       "date_added": "2025-12-02 16:52:03",
       "tags": null,
       "italian_name": "Peste dei Segnali",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/e/be065962-f2ed-4ab9-be6b-bfc66d63ff4e.jpg?1562614362",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -3591,6 +3702,7 @@
       "date_added": "2025-12-02 16:52:04",
       "tags": null,
       "italian_name": "Costume da Silver Shroud",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/2/f21fba59-330b-4daf-bf77-6dd817327a64.jpg?1708742772",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3623,6 +3735,7 @@
       "date_added": "2025-12-02 16:52:36",
       "tags": null,
       "italian_name": "Sigillo Simic",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/f/bf222c78-f12e-4857-93da-fade99c740b8.jpg?1726285326",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3655,6 +3768,7 @@
       "date_added": "2025-12-02 16:54:32",
       "tags": null,
       "italian_name": "Morsa Cerebrale",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/5/b5bb89dd-9d31-49d9-ba54-4a04798e515e.jpg?1743206083",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -3687,6 +3801,7 @@
       "date_added": "2025-12-02 16:52:37",
       "tags": null,
       "italian_name": "Diamante del Cielo",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/4/d47abfb2-9bcf-485c-9bd4-2c09b714eb32.jpg?1674138040",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3719,6 +3834,7 @@
       "date_added": "2025-12-02 16:54:21",
       "tags": null,
       "italian_name": "Aerocottero del Contrabbandiere",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/d/0/d0e53c71-6a58-4ea1-a550-f3cbd749eafd.jpg?1748704018",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3751,6 +3867,7 @@
       "date_added": "2025-12-02 16:52:05",
       "tags": null,
       "italian_name": "Anello Solare",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/e/e/ee6e5a35-fe21-4dee-b0ef-a8f2841511ad.jpg?1764180059",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -3783,6 +3900,7 @@
       "date_added": "2025-12-02 16:54:10",
       "tags": null,
       "italian_name": "Matrice Solare",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/3/03c45b66-ddc7-43f8-95d0-fe2ad743b3a4.jpg?1752944182",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -3792,13 +3910,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.37\",\"eur_foil\":null,\"tix\":\"1.51\",\"usd\":\"0.21\",\"usd_etched\":null,\"usd_foil\":null}",
-      "edhrec_rank": 6990,
+      "prices": "{\"eur\":\"0.34\",\"eur_foil\":null,\"usd\":\"0.24\",\"usd_foil\":null}",
+      "edhrec_rank": 6974,
       "collector_number": "18",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 973,
@@ -3815,6 +3933,7 @@
       "date_added": "2025-12-02 16:52:06",
       "tags": null,
       "italian_name": "Trasformatore Solare",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/8/b87315b3-d3a3-4eef-8a20-90587b36f551.jpg?1717012910",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3847,6 +3966,7 @@
       "date_added": "2025-12-02 16:54:10",
       "tags": null,
       "italian_name": "Simulacro Solenne",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/b/cb1563a1-c8dc-4fcb-b9c8-e7432235d31e.jpg?1743207347",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -3879,6 +3999,7 @@
       "date_added": "2025-12-02 16:52:07",
       "tags": null,
       "italian_name": "Soul Net",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/3/2/321d3dc9-4bd0-440e-9436-c565f500e126.jpg?1562590160",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -3911,6 +4032,7 @@
       "date_added": "2025-12-02 16:54:12",
       "tags": null,
       "italian_name": "Carceriere Senz'Anima",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/f/bf9991fd-ea6a-4ed7-b5f1-46a95f8d0634.jpg?1675957252",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -3943,6 +4065,7 @@
       "date_added": "2025-12-02 17:02:28",
       "tags": null,
       "italian_name": "Incantatore",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/d/4d193d4f-1beb-4938-b3fb-b2e96d0c9ec4.jpg?1562636758",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -3975,6 +4098,7 @@
       "date_added": "2025-12-02 16:52:08",
       "tags": null,
       "italian_name": "Libro delle Magie",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/2/6/26f4d2b1-31d7-40d8-bd4e-cdd128076d0f.jpg?1561974160",
       "mana_cost": "{0}",
       "cmc": 0.0,
@@ -4007,6 +4131,7 @@
       "date_added": "2025-12-02 16:52:09",
       "tags": null,
       "italian_name": "Tamburo Foglia di Primavera",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/5/b52af7e0-cd75-4e8e-82ed-65f8a3d0380a.jpg?1674092202",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -4039,6 +4164,7 @@
       "date_added": "2025-12-02 16:54:13",
       "tags": null,
       "italian_name": "Nibbio Infernale d'Acciaio",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/5/4/548cbc66-d915-4b94-86da-4c909a1ce645.jpg?1743207359",
       "mana_cost": "{6}",
       "cmc": 6.0,
@@ -4071,6 +4197,7 @@
       "date_added": "2025-12-02 16:54:13",
       "tags": null,
       "italian_name": "Serpe delle Litospire",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/3/5/354456dc-81da-4cd1-b7b1-7ea1ce1bcc9f.jpg?1690005814",
       "mana_cost": "{X}",
       "cmc": 0.0,
@@ -4103,6 +4230,7 @@
       "date_added": "2025-12-02 16:52:09",
       "tags": null,
       "italian_name": "Statuetta Forza",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/9/f9af73ad-625a-4260-8917-6a837f9fdf88.jpg?1708742778",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -4135,6 +4263,7 @@
       "date_added": "2025-12-02 17:35:16",
       "tags": null,
       "italian_name": "Stadio di Strixhaven",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/c/bcf0d751-5c47-4531-add4-acd07b82adf5.jpg?1763807515",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -4167,6 +4296,7 @@
       "date_added": "2025-12-02 17:02:12",
       "tags": null,
       "italian_name": "Macchina della Marea",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/2/12b9c9c5-e992-4f1c-a779-124176c3aade.jpg?1674420743",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4176,13 +4306,13 @@
       "color_identity": "[\"U\"]",
       "power": "3",
       "toughness": "2",
-      "prices": "{\"eur\":\"0.60\",\"eur_foil\":\"1.49\",\"tix\":\"0.02\",\"usd\":\"0.45\",\"usd_etched\":null,\"usd_foil\":\"0.50\"}",
-      "edhrec_rank": 14595,
+      "prices": "{\"eur\":\"0.60\",\"eur_foil\":\"1.49\",\"usd\":\"0.45\",\"usd_foil\":\"0.50\"}",
+      "edhrec_rank": 14598,
       "collector_number": "81",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1013,
@@ -4199,6 +4329,7 @@
       "date_added": "2025-12-02 16:52:38",
       "tags": null,
       "italian_name": "Nodo degli Impulsi",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/7/4/743fc231-2ab3-42f1-9dd3-af42241229aa.jpg?1599710001",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -4231,6 +4362,7 @@
       "date_added": "2025-12-02 16:52:11",
       "tags": null,
       "italian_name": "Stivali Piedelesto",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/9/1969b151-3192-4d35-80ca-c4e180601ec8.jpg?1743207367",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4263,6 +4395,7 @@
       "date_added": "2025-12-02 17:02:13",
       "tags": null,
       "italian_name": "Spada di Passato e Futuro",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/6/1670393d-86f0-46fb-b577-f73a1da2a3ed.jpg?1682205808",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -4295,6 +4428,7 @@
       "date_added": "2025-12-02 16:54:14",
       "tags": null,
       "italian_name": "Spada dell'Animista",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/4/64401acc-d080-4763-b67a-95164c11c69e.jpg?1689999846",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4327,6 +4461,7 @@
       "date_added": "2025-12-02 16:54:15",
       "tags": null,
       "italian_name": null,
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/3/a3f4d41d-69a5-412f-aa25-f1acc5cacab2.jpg?1721428350",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4359,6 +4494,7 @@
       "date_added": "2025-12-02 16:54:16",
       "tags": null,
       "italian_name": "Syr Spezia, la Fine del Pasto",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/7/f/7fbdba12-1369-41ae-b0e9-c405c0f0a2e5.jpg?1692939939",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4391,6 +4527,7 @@
       "date_added": "2025-12-02 16:52:12",
       "tags": null,
       "italian_name": "Tavola delle Gilde",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/b/6b006384-6fb6-4129-b1d2-7674d1141f8f.jpg?1562787711",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4423,6 +4560,7 @@
       "date_added": "2025-12-02 16:52:13",
       "tags": null,
       "italian_name": "Talismano della Convinzione",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/e/f/efeafc9d-a953-4915-8342-725836d0f645.jpg?1743207371",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4455,6 +4593,7 @@
       "date_added": "2025-12-02 16:52:14",
       "tags": null,
       "italian_name": "Talismano della Creatività",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/f/bfe00640-e775-4b2e-91a8-081c7ec0125c.jpg?1743207377",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4487,6 +4626,7 @@
       "date_added": "2025-12-02 16:52:15",
       "tags": null,
       "italian_name": "Talismano della Curiosità",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/8/3/8388c4e8-bda1-47e5-8df2-ddec5babcaf9.jpg?1706241095",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4519,6 +4659,7 @@
       "date_added": "2025-12-02 16:52:16",
       "tags": null,
       "italian_name": "Talismano del Dominio",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/6/f6c8e0b5-218e-41dd-8b09-2d4aaec2c979.jpg?1706241098",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4551,6 +4692,7 @@
       "date_added": "2025-12-02 16:52:17",
       "tags": null,
       "italian_name": "Talismano della Resistenza",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/e/f/eff598b0-0b32-41d0-b980-584576e58626.jpg?1726285335",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4583,6 +4725,7 @@
       "date_added": "2025-12-02 16:54:17",
       "tags": null,
       "italian_name": "Diario di Tamiyo",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/6/9602f893-38ad-4a24-be2a-c11c9b6aaf7f.jpg?1736468654",
       "mana_cost": "{5}",
       "cmc": 5.0,
@@ -4592,13 +4735,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.78\",\"eur_foil\":\"0.95\",\"tix\":null,\"usd\":\"1.01\",\"usd_etched\":null,\"usd_foil\":\"2.10\"}",
+      "prices": "{\"eur\":\"0.79\",\"eur_foil\":\"0.92\",\"usd\":\"0.93\",\"usd_foil\":\"2.10\"}",
       "edhrec_rank": 2240,
       "collector_number": "272",
       "finishes": "[\"nonfoil\",\"foil\"]",
       "frame_effects": "[\"legendary\"]",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1080,
@@ -4615,6 +4758,7 @@
       "date_added": "2025-12-02 16:54:18",
       "tags": null,
       "italian_name": "Fendianima di Tarrian",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/9/99413817-1218-4947-b12f-9a952b095a89.jpg?1699044647",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -4647,6 +4791,7 @@
       "date_added": "2025-12-02 16:54:19",
       "tags": null,
       "italian_name": "Scatola degli Enigmi di Teferi",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/1/415e81e9-ca65-4bc0-8aab-d905d58fe6cc.jpg?1562734271",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -4679,6 +4824,7 @@
       "date_added": "2025-12-02 17:02:14",
       "tags": null,
       "italian_name": "Tezzeret, Capitano Crudele",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/0/2/02e8e540-8aa3-4e6a-9a11-c3949cab5f0f.jpg?1754473212",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -4688,13 +4834,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"20.19\",\"eur_foil\":\"25.48\",\"tix\":\"12.07\",\"usd\":\"19.24\",\"usd_etched\":null,\"usd_foil\":\"25.09\"}",
-      "edhrec_rank": 2650,
+      "prices": "{\"eur\":\"20.13\",\"eur_foil\":\"25.39\",\"usd\":\"18.96\",\"usd_foil\":\"24.80\"}",
+      "edhrec_rank": 2638,
       "collector_number": "2",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1109,
@@ -4711,6 +4857,7 @@
       "date_added": "2025-12-02 17:02:15",
       "tags": null,
       "italian_name": "Il Bracciale del Dominio",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/5/f5360880-2849-45d6-b1aa-08c7e01083af.jpg?1752947533",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4743,6 +4890,7 @@
       "date_added": "2025-12-02 17:02:16",
       "tags": null,
       "italian_name": "La Pietra della Fine",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/4/a451a459-18e0-4c53-a171-3e9da534ebf1.jpg?1752947540",
       "mana_cost": "{7}",
       "cmc": 7.0,
@@ -4775,6 +4923,7 @@
       "date_added": "2025-12-02 16:54:20",
       "tags": null,
       "italian_name": "Il Ferropicco",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/8/0/8051c5ec-54a6-45a8-8945-fb93c5feaa39.jpg?1692939899",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4807,6 +4956,7 @@
       "date_added": "2025-12-02 17:02:29",
       "tags": null,
       "italian_name": "Il Sarcofago di Stasi",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/5/45537ac3-fc61-4253-a782-7f3e436b2aa6.jpg?1674422040",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -4839,6 +4989,7 @@
       "date_added": "2025-12-02 17:02:30",
       "tags": null,
       "italian_name": "La Triade della Discordia",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/9/9/99fd1cd5-4740-4a0f-b773-3d3b66861d77.jpg?1748704561",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -4871,6 +5022,7 @@
       "date_added": "2025-12-02 16:52:18",
       "tags": null,
       "italian_name": "Bastone del Morso Spinato",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/1/c1ab3225-64a9-411e-b22b-1869e958b8e5.jpg?1562881171",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4903,6 +5055,7 @@
       "date_added": "2025-12-02 16:52:19",
       "tags": null,
       "italian_name": "Ricettacolo di Pensieri",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/7/1/71b11bf4-35ab-4028-961f-5180a12dac82.jpg?1728610326",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -4935,6 +5088,7 @@
       "date_added": "2025-12-02 17:02:17",
       "tags": null,
       "italian_name": "Loto Senza Tempo",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/f/6f566387-3342-4325-ba4c-eee7626072ac.jpg?1673308246",
       "mana_cost": "{5}",
       "cmc": 5.0,
@@ -4967,6 +5121,7 @@
       "date_added": "2025-12-02 16:54:22",
       "tags": null,
       "italian_name": "Setacciatempo",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/5/6/561cab0e-8874-4534-bf79-0c1488a9f0a5.jpg?1562144325",
       "mana_cost": "{5}",
       "cmc": 5.0,
@@ -4999,6 +5154,7 @@
       "date_added": "2025-12-02 16:54:23",
       "tags": null,
       "italian_name": "Tomo delle Leggende",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/8/d/8d4cb84a-fa17-4a85-a687-ee010a789d53.jpg?1706241111",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -5031,6 +5187,7 @@
       "date_added": "2025-12-02 16:54:23",
       "tags": null,
       "italian_name": "Stazione Commerciale",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/a/1ae64bb3-115a-4c68-99c9-a45b6f788b80.jpg?1562272488",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -5040,13 +5197,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.69\",\"eur_foil\":null,\"tix\":null,\"usd\":\"0.47\",\"usd_etched\":null,\"usd_foil\":null}",
+      "prices": "{\"eur\":\"0.69\",\"eur_foil\":null,\"usd\":\"0.47\",\"usd_foil\":null}",
       "edhrec_rank": 1858,
       "collector_number": "225",
       "finishes": "[\"nonfoil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1112,
@@ -5063,6 +5220,7 @@
       "date_added": "2025-12-02 17:02:18",
       "tags": null,
       "italian_name": "Fonte della Trasmutazione",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/e/6/e6cfe673-d688-499a-882b-4fe5418739e3.jpg?1739804242",
       "mana_cost": "{5}",
       "cmc": 5.0,
@@ -5095,6 +5253,7 @@
       "date_added": "2025-12-02 16:52:20",
       "tags": null,
       "italian_name": "Guardiano del Tesoro",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/b/6/b68ab416-3394-4cb6-bfc6-33e62964dd1c.jpg?1674138077",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -5127,6 +5286,7 @@
       "date_added": "2025-12-02 16:54:25",
       "tags": null,
       "italian_name": "Titano Triplice",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/5/6/568dd5a6-86f4-4039-87d7-812120c8ab94.jpg?1625192736",
       "mana_cost": "{9}",
       "cmc": 9.0,
@@ -5159,6 +5319,7 @@
       "date_added": "2025-12-02 17:02:31",
       "tags": null,
       "italian_name": "Maschera dell'Uba",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/a/fa3ecb4e-d08f-4fac-8842-c3e772b95bd5.jpg?1562766086",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -5191,6 +5352,7 @@
       "date_added": "2025-12-02 16:54:25",
       "tags": null,
       "italian_name": "Orologio a Scarica",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/c/3/c3fd1a59-4ade-459f-90d2-1fc67d6d1384.jpg?1592711373",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -5223,6 +5385,7 @@
       "date_added": "2025-12-02 17:02:19",
       "tags": null,
       "italian_name": "Urtet, Residuo di Memnarch",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/7/a/7aa01ab4-26b0-49dc-8514-b3850d355a21.jpg?1675905609",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -5255,6 +5418,7 @@
       "date_added": "2025-12-02 17:02:19",
       "tags": null,
       "italian_name": "Sylex di Urza",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/3/0/3000d1c6-dbb3-4e65-b428-dbf167bb8797.jpg?1674420431",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -5287,6 +5451,7 @@
       "date_added": "2025-12-02 17:02:32",
       "tags": null,
       "italian_name": "Amuleto Pietracelante",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/3/7/3705d3e4-317e-460d-b16e-e57238a19070.jpg?1562906098",
       "mana_cost": "{3}",
       "cmc": 3.0,
@@ -5319,6 +5484,7 @@
       "date_added": "2025-12-02 16:54:33",
       "tags": null,
       "italian_name": "Ninnolo Irritante",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/2/9/29f11089-658f-42e6-aeb0-09b512ad2479.jpg?1734350193",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -5328,13 +5494,13 @@
       "color_identity": "[]",
       "power": null,
       "toughness": null,
-      "prices": "{\"eur\":\"0.80\",\"eur_foil\":\"1.63\",\"tix\":\"2.33\",\"usd\":\"2.11\",\"usd_etched\":null,\"usd_foil\":\"3.35\"}",
-      "edhrec_rank": 1723,
+      "prices": "{\"eur\":\"0.82\",\"eur_foil\":\"1.67\",\"usd\":\"2.15\",\"usd_foil\":\"3.46\"}",
+      "edhrec_rank": 1722,
       "collector_number": "212",
       "finishes": "[\"nonfoil\",\"foil\"]",
-      "frame_effects": null,
+      "frame_effects": "null",
       "promo": false,
-      "promo_types": null
+      "promo_types": "null"
     },
     {
       "id": 1014,
@@ -5351,6 +5517,7 @@
       "date_added": "2025-12-02 16:52:38",
       "tags": null,
       "italian_name": "Arco Lungo Viridiano",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/4/f4607634-6206-4c6c-b389-abcbfe969b65.jpg?1631589299",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -5383,6 +5550,7 @@
       "date_added": "2025-12-02 16:54:26",
       "tags": null,
       "italian_name": "Specchio del Vuoto",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/6/f/6f906219-7a6a-427b-93c4-4d958cbd171c.jpg?1626099451",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -5415,6 +5583,7 @@
       "date_added": "2025-12-02 17:02:33",
       "tags": null,
       "italian_name": "Sigillo delle Ossa",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/2/a271351e-5d5e-443b-99a4-ebdc8a3c4923.jpg?1562929259",
       "mana_cost": "{6}",
       "cmc": 6.0,
@@ -5447,6 +5616,7 @@
       "date_added": "2025-12-02 16:52:39",
       "tags": null,
       "italian_name": "Ninnolo del Viaggiatore",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/a/c/ac1960a1-9141-468c-b96c-6c8e6905084d.jpg?1743207408",
       "mana_cost": "{1}",
       "cmc": 1.0,
@@ -5479,6 +5649,7 @@
       "date_added": "2025-12-02 16:52:22",
       "tags": null,
       "italian_name": "Vasca delle Saldature",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/4/2/42b7b73b-4800-4fc7-9a5c-93e00ea88498.jpg?1562141903",
       "mana_cost": "{0}",
       "cmc": 0.0,
@@ -5511,6 +5682,7 @@
       "date_added": "2025-12-02 16:54:27",
       "tags": null,
       "italian_name": "Pozzo dei Sogni Perduti",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/f/e/fe839cbc-7eae-4f86-be35-96542223347c.jpg?1686966471",
       "mana_cost": "{4}",
       "cmc": 4.0,
@@ -5543,6 +5715,7 @@
       "date_added": "2025-12-02 16:54:28",
       "tags": null,
       "italian_name": "Cronista dello Zenit",
+      "needs_verification": false,
       "image_uris": "https://cards.scryfall.io/normal/front/1/4/1431fe83-7dc7-4c40-8d66-6525560e4323.jpg?1675957261",
       "mana_cost": "{2}",
       "cmc": 2.0,
@@ -5563,33 +5736,18 @@
   ],
   "sets": [
     {
-      "set_code": "c21",
-      "set_name": "Commander 2021",
+      "set_code": "DDJ",
+      "set_name": "Duel Decks: Izzet vs. Golgari",
       "released_at": null
     },
     {
-      "set_code": "PIP",
-      "set_name": "Fallout",
+      "set_code": "big",
+      "set_name": "The Big Score",
       "released_at": null
     },
     {
-      "set_code": "bro",
-      "set_name": "The Brothers' War",
-      "released_at": null
-    },
-    {
-      "set_code": "mh3",
-      "set_name": "Modern Horizons 3",
-      "released_at": null
-    },
-    {
-      "set_code": "ltr",
-      "set_name": "The Lord of the Rings: Tales of Middle-earth",
-      "released_at": null
-    },
-    {
-      "set_code": "mbs",
-      "set_name": "Mirrodin Besieged",
+      "set_code": "9ed",
+      "set_name": "Ninth Edition",
       "released_at": null
     },
     {
@@ -5598,23 +5756,58 @@
       "released_at": null
     },
     {
-      "set_code": "plg20",
-      "set_name": "Love Your LGS 2020",
+      "set_code": "mkc",
+      "set_name": "Murders at Karlov Manor Commander",
       "released_at": null
     },
     {
-      "set_code": "zen",
-      "set_name": "Zendikar",
+      "set_code": "woe",
+      "set_name": "Wilds of Eldraine",
       "released_at": null
     },
     {
-      "set_code": "ncc",
-      "set_name": "New Capenna Commander",
+      "set_code": "LTC",
+      "set_name": "Tales of Middle-earth Commander",
       "released_at": null
     },
     {
-      "set_code": "chk",
-      "set_name": "Champions of Kamigawa",
+      "set_code": "acr",
+      "set_name": "Assassin's Creed",
+      "released_at": null
+    },
+    {
+      "set_code": "neo",
+      "set_name": "Kamigawa: Neon Dynasty",
+      "released_at": null
+    },
+    {
+      "set_code": "M14",
+      "set_name": "Magic 2014",
+      "released_at": null
+    },
+    {
+      "set_code": "mat",
+      "set_name": "March of the Machine: The Aftermath",
+      "released_at": null
+    },
+    {
+      "set_code": "RAV",
+      "set_name": "Ravnica: City of Guilds",
+      "released_at": null
+    },
+    {
+      "set_code": "mh3",
+      "set_name": "Modern Horizons 3",
+      "released_at": null
+    },
+    {
+      "set_code": "dom",
+      "set_name": "Dominaria",
+      "released_at": null
+    },
+    {
+      "set_code": "ddf",
+      "set_name": "Duel Decks: Elspeth vs. Tezzeret",
       "released_at": null
     },
     {
@@ -5623,53 +5816,28 @@
       "released_at": null
     },
     {
-      "set_code": "tsr",
-      "set_name": "Time Spiral Remastered",
+      "set_code": "PSNC",
+      "set_name": "Streets of New Capenna Promos",
       "released_at": null
     },
     {
-      "set_code": "2xm",
-      "set_name": "Double Masters",
+      "set_code": "otj",
+      "set_name": "Outlaws of Thunder Junction",
       "released_at": null
     },
     {
-      "set_code": "SOM",
-      "set_name": "Scars of Mirrodin",
+      "set_code": "dsk",
+      "set_name": "Duskmourn: House of Horror",
       "released_at": null
     },
     {
-      "set_code": "pip",
-      "set_name": "Fallout",
+      "set_code": "fin",
+      "set_name": "Final Fantasy",
       "released_at": null
     },
     {
-      "set_code": "rtr",
-      "set_name": "Return to Ravnica",
-      "released_at": null
-    },
-    {
-      "set_code": "FCA",
-      "set_name": "Final Fantasy: Through the Ages",
-      "released_at": null
-    },
-    {
-      "set_code": "kld",
-      "set_name": "Kaladesh",
-      "released_at": null
-    },
-    {
-      "set_code": "eoe",
-      "set_name": "Edge of Eternities",
-      "released_at": null
-    },
-    {
-      "set_code": "blc",
-      "set_name": "Bloomburrow Commander",
-      "released_at": null
-    },
-    {
-      "set_code": "2x2",
-      "set_name": "Double Masters 2022",
+      "set_code": "5ED",
+      "set_name": "Fifth Edition",
       "released_at": null
     },
     {
@@ -5678,13 +5846,38 @@
       "released_at": null
     },
     {
-      "set_code": "mm2",
-      "set_name": "Modern Masters 2015",
+      "set_code": "mrd",
+      "set_name": "Mirrodin",
       "released_at": null
     },
     {
-      "set_code": "M3C",
-      "set_name": "Modern Horizons 3 Commander",
+      "set_code": "TMP",
+      "set_name": "Tempest",
+      "released_at": null
+    },
+    {
+      "set_code": "fic",
+      "set_name": "Final Fantasy Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "mh1",
+      "set_name": "Modern Horizons",
+      "released_at": null
+    },
+    {
+      "set_code": "SOM",
+      "set_name": "Scars of Mirrodin",
+      "released_at": null
+    },
+    {
+      "set_code": "blb",
+      "set_name": "Bloomburrow",
+      "released_at": null
+    },
+    {
+      "set_code": "FCA",
+      "set_name": "Final Fantasy: Through the Ages",
       "released_at": null
     },
     {
@@ -5698,198 +5891,8 @@
       "released_at": null
     },
     {
-      "set_code": "dsk",
-      "set_name": "Duskmourn: House of Horror",
-      "released_at": null
-    },
-    {
-      "set_code": "LCC",
-      "set_name": "The Lost Caverns of Ixalan Commander",
-      "released_at": null
-    },
-    {
-      "set_code": "mom",
-      "set_name": "March of the Machine",
-      "released_at": null
-    },
-    {
       "set_code": "dmu",
       "set_name": "Dominaria United",
-      "released_at": null
-    },
-    {
-      "set_code": "mrd",
-      "set_name": "Mirrodin",
-      "released_at": null
-    },
-    {
-      "set_code": "c18",
-      "set_name": "Commander 2018",
-      "released_at": null
-    },
-    {
-      "set_code": "mh2",
-      "set_name": "Modern Horizons 2",
-      "released_at": null
-    },
-    {
-      "set_code": "eve",
-      "set_name": "Eventide",
-      "released_at": null
-    },
-    {
-      "set_code": "5dn",
-      "set_name": "Fifth Dawn",
-      "released_at": null
-    },
-    {
-      "set_code": "som",
-      "set_name": "Scars of Mirrodin",
-      "released_at": null
-    },
-    {
-      "set_code": "bbd",
-      "set_name": "Battlebond",
-      "released_at": null
-    },
-    {
-      "set_code": "DDJ",
-      "set_name": "Duel Decks: Izzet vs. Golgari",
-      "released_at": null
-    },
-    {
-      "set_code": "otj",
-      "set_name": "Outlaws of Thunder Junction",
-      "released_at": null
-    },
-    {
-      "set_code": "clu",
-      "set_name": "Ravnica: Clue Edition",
-      "released_at": null
-    },
-    {
-      "set_code": "fin",
-      "set_name": "Final Fantasy",
-      "released_at": null
-    },
-    {
-      "set_code": "TMP",
-      "set_name": "Tempest",
-      "released_at": null
-    },
-    {
-      "set_code": "xln",
-      "set_name": "Ixalan",
-      "released_at": null
-    },
-    {
-      "set_code": "inr",
-      "set_name": "Innistrad Remastered",
-      "released_at": null
-    },
-    {
-      "set_code": "neo",
-      "set_name": "Kamigawa: Neon Dynasty",
-      "released_at": null
-    },
-    {
-      "set_code": "woe",
-      "set_name": "Wilds of Eldraine",
-      "released_at": null
-    },
-    {
-      "set_code": "tdm",
-      "set_name": "Tarkir: Dragonstorm",
-      "released_at": null
-    },
-    {
-      "set_code": "RAV",
-      "set_name": "Ravnica: City of Guilds",
-      "released_at": null
-    },
-    {
-      "set_code": "dom",
-      "set_name": "Dominaria",
-      "released_at": null
-    },
-    {
-      "set_code": "cm2",
-      "set_name": "Commander Anthology Volume II",
-      "released_at": null
-    },
-    {
-      "set_code": "wwk",
-      "set_name": "Worldwake",
-      "released_at": null
-    },
-    {
-      "set_code": "fdn",
-      "set_name": "Foundations",
-      "released_at": null
-    },
-    {
-      "set_code": "mkc",
-      "set_name": "Murders at Karlov Manor Commander",
-      "released_at": null
-    },
-    {
-      "set_code": "dsc",
-      "set_name": "Duskmourn: House of Horror Commander",
-      "released_at": null
-    },
-    {
-      "set_code": "mat",
-      "set_name": "March of the Machine: The Aftermath",
-      "released_at": null
-    },
-    {
-      "set_code": "tdc",
-      "set_name": "Tarkir: Dragonstorm Commander",
-      "released_at": null
-    },
-    {
-      "set_code": "cmm",
-      "set_name": "Commander Masters",
-      "released_at": null
-    },
-    {
-      "set_code": "4ED",
-      "set_name": "Fourth Edition",
-      "released_at": null
-    },
-    {
-      "set_code": "mh1",
-      "set_name": "Modern Horizons",
-      "released_at": null
-    },
-    {
-      "set_code": "clb",
-      "set_name": "Commander Legends: Battle for Baldur's Gate",
-      "released_at": null
-    },
-    {
-      "set_code": "m20",
-      "set_name": "Core Set 2020",
-      "released_at": null
-    },
-    {
-      "set_code": "m19",
-      "set_name": "Core Set 2019",
-      "released_at": null
-    },
-    {
-      "set_code": "nph",
-      "set_name": "New Phyrexia",
-      "released_at": null
-    },
-    {
-      "set_code": "eoc",
-      "set_name": "Edge of Eternities Commander",
-      "released_at": null
-    },
-    {
-      "set_code": "lcc",
-      "set_name": "The Lost Caverns of Ixalan Commander",
       "released_at": null
     },
     {
@@ -5898,68 +5901,18 @@
       "released_at": null
     },
     {
-      "set_code": "shm",
-      "set_name": "Shadowmoor",
+      "set_code": "c18",
+      "set_name": "Commander 2018",
       "released_at": null
     },
     {
-      "set_code": "cmr",
-      "set_name": "Commander Legends",
+      "set_code": "nph",
+      "set_name": "New Phyrexia",
       "released_at": null
     },
     {
-      "set_code": "mor",
-      "set_name": "Morningtide",
-      "released_at": null
-    },
-    {
-      "set_code": "onc",
-      "set_name": "Phyrexia: All Will Be One Commander",
-      "released_at": null
-    },
-    {
-      "set_code": "5DN",
-      "set_name": "Fifth Dawn",
-      "released_at": null
-    },
-    {
-      "set_code": "fic",
-      "set_name": "Final Fantasy Commander",
-      "released_at": null
-    },
-    {
-      "set_code": "PSNC",
-      "set_name": "Streets of New Capenna Promos",
-      "released_at": null
-    },
-    {
-      "set_code": "m10",
-      "set_name": "Magic 2010",
-      "released_at": null
-    },
-    {
-      "set_code": "5ED",
-      "set_name": "Fifth Edition",
-      "released_at": null
-    },
-    {
-      "set_code": "fca",
-      "set_name": "Final Fantasy: Through the Ages",
-      "released_at": null
-    },
-    {
-      "set_code": "ogw",
-      "set_name": "Oath of the Gatewatch",
-      "released_at": null
-    },
-    {
-      "set_code": "BLC",
-      "set_name": "Bloomburrow Commander",
-      "released_at": null
-    },
-    {
-      "set_code": "dst",
-      "set_name": "Darksteel",
+      "set_code": "c21",
+      "set_name": "Commander 2021",
       "released_at": null
     },
     {
@@ -5968,48 +5921,48 @@
       "released_at": null
     },
     {
-      "set_code": "moc",
-      "set_name": "March of the Machine Commander",
+      "set_code": "5dn",
+      "set_name": "Fifth Dawn",
       "released_at": null
     },
     {
-      "set_code": "acr",
-      "set_name": "Assassin's Creed",
+      "set_code": "inr",
+      "set_name": "Innistrad Remastered",
       "released_at": null
     },
     {
-      "set_code": "ddf",
-      "set_name": "Duel Decks: Elspeth vs. Tezzeret",
+      "set_code": "clb",
+      "set_name": "Commander Legends: Battle for Baldur's Gate",
       "released_at": null
     },
     {
-      "set_code": "LTC",
-      "set_name": "Tales of Middle-earth Commander",
+      "set_code": "wwk",
+      "set_name": "Worldwake",
       "released_at": null
     },
     {
-      "set_code": "KLR",
-      "set_name": "Kaladesh Remastered",
+      "set_code": "zen",
+      "set_name": "Zendikar",
       "released_at": null
     },
     {
-      "set_code": "afc",
-      "set_name": "Forgotten Realms Commander",
+      "set_code": "BLC",
+      "set_name": "Bloomburrow Commander",
       "released_at": null
     },
     {
-      "set_code": "big",
-      "set_name": "The Big Score",
+      "set_code": "LCC",
+      "set_name": "The Lost Caverns of Ixalan Commander",
       "released_at": null
     },
     {
-      "set_code": "M14",
-      "set_name": "Magic 2014",
+      "set_code": "bbd",
+      "set_name": "Battlebond",
       "released_at": null
     },
     {
-      "set_code": "blb",
-      "set_name": "Bloomburrow",
+      "set_code": "mbs",
+      "set_name": "Mirrodin Besieged",
       "released_at": null
     },
     {
@@ -6018,8 +5971,223 @@
       "released_at": null
     },
     {
+      "set_code": "mor",
+      "set_name": "Morningtide",
+      "released_at": null
+    },
+    {
+      "set_code": "tdc",
+      "set_name": "Tarkir: Dragonstorm Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "kld",
+      "set_name": "Kaladesh",
+      "released_at": null
+    },
+    {
+      "set_code": "2xm",
+      "set_name": "Double Masters",
+      "released_at": null
+    },
+    {
+      "set_code": "fdn",
+      "set_name": "Foundations",
+      "released_at": null
+    },
+    {
       "set_code": "dmc",
       "set_name": "Dominaria United Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "KLR",
+      "set_name": "Kaladesh Remastered",
+      "released_at": null
+    },
+    {
+      "set_code": "pip",
+      "set_name": "Fallout",
+      "released_at": null
+    },
+    {
+      "set_code": "m10",
+      "set_name": "Magic 2010",
+      "released_at": null
+    },
+    {
+      "set_code": "xln",
+      "set_name": "Ixalan",
+      "released_at": null
+    },
+    {
+      "set_code": "M3C",
+      "set_name": "Modern Horizons 3 Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "blc",
+      "set_name": "Bloomburrow Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "plg20",
+      "set_name": "Love Your LGS 2020",
+      "released_at": null
+    },
+    {
+      "set_code": "moc",
+      "set_name": "March of the Machine Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "mom",
+      "set_name": "March of the Machine",
+      "released_at": null
+    },
+    {
+      "set_code": "rtr",
+      "set_name": "Return to Ravnica",
+      "released_at": null
+    },
+    {
+      "set_code": "2x2",
+      "set_name": "Double Masters 2022",
+      "released_at": null
+    },
+    {
+      "set_code": "eoc",
+      "set_name": "Edge of Eternities Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "mh2",
+      "set_name": "Modern Horizons 2",
+      "released_at": null
+    },
+    {
+      "set_code": "5DN",
+      "set_name": "Fifth Dawn",
+      "released_at": null
+    },
+    {
+      "set_code": "dst",
+      "set_name": "Darksteel",
+      "released_at": null
+    },
+    {
+      "set_code": "som",
+      "set_name": "Scars of Mirrodin",
+      "released_at": null
+    },
+    {
+      "set_code": "mm2",
+      "set_name": "Modern Masters 2015",
+      "released_at": null
+    },
+    {
+      "set_code": "chk",
+      "set_name": "Champions of Kamigawa",
+      "released_at": null
+    },
+    {
+      "set_code": "eve",
+      "set_name": "Eventide",
+      "released_at": null
+    },
+    {
+      "set_code": "tsr",
+      "set_name": "Time Spiral Remastered",
+      "released_at": null
+    },
+    {
+      "set_code": "tdm",
+      "set_name": "Tarkir: Dragonstorm",
+      "released_at": null
+    },
+    {
+      "set_code": "clu",
+      "set_name": "Ravnica: Clue Edition",
+      "released_at": null
+    },
+    {
+      "set_code": "m20",
+      "set_name": "Core Set 2020",
+      "released_at": null
+    },
+    {
+      "set_code": "bro",
+      "set_name": "The Brothers' War",
+      "released_at": null
+    },
+    {
+      "set_code": "eoe",
+      "set_name": "Edge of Eternities",
+      "released_at": null
+    },
+    {
+      "set_code": "cmm",
+      "set_name": "Commander Masters",
+      "released_at": null
+    },
+    {
+      "set_code": "m19",
+      "set_name": "Core Set 2019",
+      "released_at": null
+    },
+    {
+      "set_code": "ltr",
+      "set_name": "The Lord of the Rings: Tales of Middle-earth",
+      "released_at": null
+    },
+    {
+      "set_code": "lcc",
+      "set_name": "The Lost Caverns of Ixalan Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "ncc",
+      "set_name": "New Capenna Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "shm",
+      "set_name": "Shadowmoor",
+      "released_at": null
+    },
+    {
+      "set_code": "4ED",
+      "set_name": "Fourth Edition",
+      "released_at": null
+    },
+    {
+      "set_code": "PIP",
+      "set_name": "Fallout",
+      "released_at": null
+    },
+    {
+      "set_code": "cmr",
+      "set_name": "Commander Legends",
+      "released_at": null
+    },
+    {
+      "set_code": "fca",
+      "set_name": "Final Fantasy: Through the Ages",
+      "released_at": null
+    },
+    {
+      "set_code": "cm2",
+      "set_name": "Commander Anthology Volume II",
+      "released_at": null
+    },
+    {
+      "set_code": "dsc",
+      "set_name": "Duskmourn: House of Horror Commander",
+      "released_at": null
+    },
+    {
+      "set_code": "afc",
+      "set_name": "Forgotten Realms Commander",
       "released_at": null
     },
     {
@@ -6028,13 +6196,13 @@
       "released_at": null
     },
     {
-      "set_code": "9ed",
-      "set_name": "Ninth Edition",
+      "set_code": "onc",
+      "set_name": "Phyrexia: All Will Be One Commander",
       "released_at": null
     }
   ],
   "tags": [
-    "in lingua cinese",
-    "in lingua giapponese"
+    "in lingua giapponese",
+    "in lingua cinese"
   ]
 }
