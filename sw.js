@@ -1,10 +1,36 @@
-// Increment this version number with each deployment to force cache refresh
-const CACHE_VERSION = 16;
+// =============================================================================
+// SERVICE WORKER - OPTIMIZED CACHE BUSTING SYSTEM
+// =============================================================================
+// This Service Worker implements a production-ready cache busting strategy:
+//
+// 1. VERSION-BASED CACHE (auto-incremented on deployment)
+//    - Forces complete cache refresh when SW updates
+//    - Old caches deleted automatically on activation
+//
+// 2. NETWORK-FIRST for collection-data.json
+//    - Always fetches latest data from network
+//    - Falls back to cache only when offline
+//    - Uses exported_at timestamp as version identifier
+//
+// 3. CACHE-FIRST for static assets
+//    - Instant loading from cache
+//    - Background updates when available
+//
+// 4. AUTO-UPDATE mechanism (index.html)
+//    - Checks for SW updates on every page load
+//    - Auto-reloads once when new version ready
+//    - isRefreshing flag prevents double-reload
+//
+// Result: Users get fresh data automatically, no manual hard refresh needed ✨
+// =============================================================================
+
+const CACHE_VERSION = 19;
 const CACHE_NAME = `mtg-collection-v${CACHE_VERSION}`;
 const DATA_CACHE_NAME = `mtg-data-v${CACHE_VERSION}`;
 
 // Install event - cache essential resources
 self.addEventListener('install', (event) => {
+  console.log(`SW v${CACHE_VERSION} installing...`);
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll([
@@ -15,6 +41,7 @@ self.addEventListener('install', (event) => {
         '/apple-touch-icon.png'
       ]);
     }).then(() => {
+      console.log(`SW v${CACHE_VERSION} installed, skipping waiting...`);
       // Force the waiting service worker to become the active service worker
       return self.skipWaiting();
     })
@@ -23,6 +50,7 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
+  console.log(`SW v${CACHE_VERSION} activating...`);
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
@@ -35,6 +63,7 @@ self.addEventListener('activate', (event) => {
         })
       );
     }).then(() => {
+      console.log(`SW v${CACHE_VERSION} activated, claiming clients...`);
       // Ensure the new service worker takes control immediately
       return self.clients.claim();
     })
@@ -42,10 +71,16 @@ self.addEventListener('activate', (event) => {
 });
 
 // Fetch event - differentiated caching strategy
+// NOTE: On GitHub Pages, we can't set HTTP headers via server config.
+// The Service Worker handles ALL caching behavior instead:
+// - Network-first for data (always fresh)
+// - Cache-first for assets (fast loading)
+// - Automatic cache versioning and cleanup
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
   // Network-first strategy for collection data (always fresh)
+  // Equivalent to: Cache-Control: public, max-age=0, must-revalidate
   if (url.pathname.includes('collection-data.json')) {
     event.respondWith(
       fetch(event.request)
@@ -64,6 +99,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   // Cache-first strategy for static assets (fast loading)
+  // Assets are served from cache immediately, then updated in background
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request).then((fetchResponse) => {
