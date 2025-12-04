@@ -7,10 +7,10 @@
 //    - Forces complete cache refresh when SW updates
 //    - Old caches deleted automatically on activation
 //
-// 2. NETWORK-FIRST for collection-data.json
-//    - Always fetches latest data from network
+// 2. NETWORK-FIRST for Gist data
+//    - Always fetches latest from gist.githubusercontent.com
 //    - Falls back to cache only when offline
-//    - Uses exported_at timestamp as version identifier
+//    - Uses cacheVersion/exported_at as version identifier
 //
 // 3. CACHE-FIRST for static assets
 //    - Instant loading from cache
@@ -24,7 +24,7 @@
 // Result: Users get fresh data automatically, no manual hard refresh needed ✨
 // =============================================================================
 
-const CACHE_VERSION = 18;
+const CACHE_VERSION = 19;
 const CACHE_NAME = `mtg-collection-v${CACHE_VERSION}`;
 const DATA_CACHE_NAME = `mtg-data-v${CACHE_VERSION}`;
 
@@ -73,15 +73,15 @@ self.addEventListener('activate', (event) => {
 // Fetch event - differentiated caching strategy
 // NOTE: On GitHub Pages, we can't set HTTP headers via server config.
 // The Service Worker handles ALL caching behavior instead:
-// - Network-first for data (always fresh)
+// - Network-first for Gist data (always fresh)
 // - Cache-first for assets (fast loading)
 // - Automatic cache versioning and cleanup
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // Network-first strategy for collection data (always fresh)
-  // Equivalent to: Cache-Control: public, max-age=0, must-revalidate
-  if (url.pathname.includes('collection-data.json')) {
+  // Network-first strategy for Gist data (always fresh)
+  // Fetches latest from gist.githubusercontent.com, falls back to cache if offline
+  if (url.hostname === 'gist.githubusercontent.com' && url.pathname.includes('magic-collection.json')) {
     event.respondWith(
       fetch(event.request)
         .then((fetchResponse) => {

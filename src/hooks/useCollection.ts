@@ -59,9 +59,10 @@ export function useCollection() {
       try {
         setIsLoading(true)
 
-        // Step 1: Fetch local collection data
+        // Step 1: Fetch collection data from Gist
         // Service Worker handles cache busting with network-first strategy
-        const response = await fetch('/collection-data.json', {
+        const gistUrl = 'https://gist.githubusercontent.com/h501y/8a09b4a605cd230d3088a7e6eb2a558a/raw/magic-collection.json'
+        const response = await fetch(gistUrl, {
           cache: 'no-cache',
           headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
