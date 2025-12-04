@@ -58,16 +58,45 @@ export function useCollection() {
     async function loadData() {
       try {
         setIsLoading(true)
-        // Use URL without hash to always get latest version
-        const response = await fetch('https://gist.githubusercontent.com/h501y/8a09b4a605cd230d3088a7e6eb2a558a/raw/magic-collection.json')
-        if (!response.ok) {
+        
+        // Step 1: Fetch with timestamp to bypass cache and get current cacheVersion
+        const metaUrl = `https://gist.githubusercontent.com/h501y/8a09b4a605cd230d3088a7e6eb2a558a/raw/magic-collection.json?t=${Date.now()}`
+        const metaResponse = await fetch(metaUrl, {
+          cache: 'no-cache',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          }
+        })
+        
+        if (!metaResponse.ok) {
           throw new Error('Failed to load collection data')
         }
-        const json = await response.json()
+        
+        const json = await metaResponse.json()
+        
+        // Step 2: Check if we have a new version
+        const cacheVersion = json.cacheVersion || Date.now()
+        const lastVersion = localStorage.getItem('collectionVersion')
+        
+        if (lastVersion !== String(cacheVersion)) {
+          console.log(`🆕 New collection version detected: ${cacheVersion} (was: ${lastVersion || 'none'})`)
+          localStorage.setItem('collectionVersion', String(cacheVersion))
+        } else {
+          console.log(`✅ Collection up to date (v${cacheVersion})`)
+        }
+        
+        console.log(`📦 Loaded ${json.cards?.length || 0} cards`)
+        if (json.lastUpdated) {
+          console.log(`📅 Last updated: ${json.lastUpdated}`)
+        }
+        
         setData(json)
         setError(null)
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error')
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error'
+        console.error('❌ Failed to load collection:', errorMessage)
+        setError(errorMessage)
       } finally {
         setIsLoading(false)
       }

@@ -47,6 +47,8 @@ export interface WebCollectionData {
   cards: Card[]
   sets: CardSet[]
   tags: string[]
+  lastUpdated?: string
+  cacheVersion?: number
 }
 
 export type SortField = 'name' | 'type_line' | 'edition' | 'rarity' | 'cmc' | 'quantity'
