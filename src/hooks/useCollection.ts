@@ -58,39 +58,39 @@ export function useCollection() {
     async function loadData() {
       try {
         setIsLoading(true)
-        
-        // Step 1: Fetch with timestamp to bypass cache and get current cacheVersion
-        const metaUrl = `https://gist.githubusercontent.com/h501y/8a09b4a605cd230d3088a7e6eb2a558a/raw/magic-collection.json?t=${Date.now()}`
-        const metaResponse = await fetch(metaUrl, {
+
+        // Step 1: Fetch local collection data with timestamp to bypass cache
+        const dataUrl = `/collection-data.json?t=${Date.now()}`
+        const response = await fetch(dataUrl, {
           cache: 'no-cache',
           headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
             'Pragma': 'no-cache'
           }
         })
-        
-        if (!metaResponse.ok) {
-          throw new Error('Failed to load collection data')
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch')
         }
-        
-        const json = await metaResponse.json()
-        
+
+        const json = await response.json()
+
         // Step 2: Check if we have a new version
         const cacheVersion = json.cacheVersion || Date.now()
         const lastVersion = localStorage.getItem('collectionVersion')
-        
+
         if (lastVersion !== String(cacheVersion)) {
           console.log(`🆕 New collection version detected: ${cacheVersion} (was: ${lastVersion || 'none'})`)
           localStorage.setItem('collectionVersion', String(cacheVersion))
         } else {
           console.log(`✅ Collection up to date (v${cacheVersion})`)
         }
-        
+
         console.log(`📦 Loaded ${json.cards?.length || 0} cards`)
         if (json.lastUpdated) {
           console.log(`📅 Last updated: ${json.lastUpdated}`)
         }
-        
+
         setData(json)
         setError(null)
       } catch (err) {
