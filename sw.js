@@ -24,7 +24,7 @@
 // Result: Users get fresh data automatically, no manual hard refresh needed ✨
 // =============================================================================
 
-const CACHE_VERSION = 20;
+const CACHE_VERSION = 21;
 const CACHE_NAME = `mtg-collection-v${CACHE_VERSION}`;
 const DATA_CACHE_NAME = `mtg-data-v${CACHE_VERSION}`;
 
@@ -83,16 +83,33 @@ self.addEventListener('fetch', (event) => {
   // Fetches latest from gist.githubusercontent.com, falls back to cache if offline
   if (url.hostname === 'gist.githubusercontent.com' && url.pathname.includes('magic-collection.json')) {
     event.respondWith(
-      fetch(event.request)
+      fetch(event.request, {
+        mode: 'cors',
+        credentials: 'omit'
+      })
         .then((fetchResponse) => {
+          if (!fetchResponse.ok) {
+            throw new Error('Network response was not ok');
+          }
           return caches.open(DATA_CACHE_NAME).then((cache) => {
             cache.put(event.request, fetchResponse.clone());
             return fetchResponse;
           });
         })
-        .catch(() => {
-          // Fallback to cache if offline
-          return caches.match(event.request);
+        .catch((error) => {
+          console.log('Gist fetch failed, trying cache:', error);
+          // Fallback to cache if offline or error
+          return caches.match(event.request).then(cachedResponse => {
+            if (cachedResponse) {
+              return cachedResponse;
+            }
+            // Return a valid error response instead of undefined
+            return new Response(JSON.stringify({error: 'Failed to load data'}), {
+              status: 503,
+              statusText: 'Service Unavailable',
+              headers: {'Content-Type': 'application/json'}
+            });
+          });
         })
     );
     return;
