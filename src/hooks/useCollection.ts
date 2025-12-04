@@ -59,9 +59,9 @@ export function useCollection() {
       try {
         setIsLoading(true)
 
-        // Step 1: Fetch local collection data with timestamp to bypass cache
-        const dataUrl = `/collection-data.json?t=${Date.now()}`
-        const response = await fetch(dataUrl, {
+        // Step 1: Fetch local collection data
+        // Service Worker handles cache busting with network-first strategy
+        const response = await fetch('/collection-data.json', {
           cache: 'no-cache',
           headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -76,7 +76,8 @@ export function useCollection() {
         const json = await response.json()
 
         // Step 2: Check if we have a new version
-        const cacheVersion = json.cacheVersion || Date.now()
+        // Use exported_at as version identifier (more reliable than Date.now())
+        const cacheVersion = json.cacheVersion || json.exported_at || json.version
         const lastVersion = localStorage.getItem('collectionVersion')
 
         if (lastVersion !== String(cacheVersion)) {

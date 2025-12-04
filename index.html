@@ -20,10 +20,42 @@
     <script type="module" src="/src/main.tsx"></script>
     <script>
       if ('serviceWorker' in navigator) {
+        // Prevent multiple reloads with a flag
+        let isRefreshing = false;
+
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('SW registered'))
+            .then(reg => {
+              console.log('SW registered');
+
+              // Check for updates every time the page loads
+              reg.update();
+
+              // Force update when a new service worker is waiting
+              reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    // New service worker available, reload the page (once)
+                    if (!isRefreshing) {
+                      isRefreshing = true;
+                      console.log('New SW available, reloading...');
+                      window.location.reload();
+                    }
+                  }
+                });
+              });
+            })
             .catch(err => console.log('SW error:', err));
+
+          // Listen for controllerchange and reload (once)
+          navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (!isRefreshing) {
+              isRefreshing = true;
+              console.log('SW controller changed, reloading...');
+              window.location.reload();
+            }
+          });
         });
       }
     </script>
