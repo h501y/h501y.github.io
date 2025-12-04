@@ -151,7 +151,7 @@ export default function App() {
             {collection.error}
           </p>
           <p className="text-xs mt-4" style={{ color: 'var(--color-gray-500)' }}>
-            Assicurati che il file collection-data.json sia presente nella directory public.
+            Impossibile caricare i dati dal GitHub Gist. Verifica che il Gist contenga dati aggiornati.
           </p>
         </div>
       </div>
