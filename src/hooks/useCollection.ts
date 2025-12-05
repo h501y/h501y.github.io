@@ -63,7 +63,7 @@ export function useCollection() {
         // Service Worker handles cache busting with network-first strategy
         // Note: No custom headers to avoid CORS preflight issues with Gist
         // Note: URL without commit SHA always points to latest version
-        const gistUrl = 'https://gist.githubusercontent.com/h501y/1a694df470f2c3fb868a05c4fce9cb69/raw/magic-collection.json'
+        const gistUrl = 'https://gist.githubusercontent.com/h501y/4e0cccc091fe0b9570ca1c70aba90d26/raw/magic-collection.json'
         const response = await fetch(gistUrl, {
           cache: 'no-cache'
         })

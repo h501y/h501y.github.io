@@ -24,7 +24,7 @@
 // Result: Users get fresh data automatically, no manual hard refresh needed ✨
 // =============================================================================
 
-const CACHE_VERSION = 22;
+const CACHE_VERSION = 23;
 const CACHE_NAME = `mtg-collection-v${CACHE_VERSION}`;
 const DATA_CACHE_NAME = `mtg-data-v${CACHE_VERSION}`;
 
