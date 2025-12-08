@@ -48,6 +48,16 @@ export function CardGrid({ cards }: CardGridProps) {
   return (
     <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
       {cards.map((card) => {
+        // Parse tags if they exist
+        let parsedTags: Array<{ name: string; colorIndex: number }> = []
+        if (card.tags) {
+          try {
+            parsedTags = typeof card.tags === 'string' ? JSON.parse(card.tags) : card.tags
+          } catch (e) {
+            // If parsing fails, ignore tags
+          }
+        }
+
         return (
           <div
             key={card.id}
@@ -55,13 +65,19 @@ export function CardGrid({ cards }: CardGridProps) {
           >
             {/* Card image */}
             {card.image_uris && (
-              <div className="w-full aspect-[5/7] mb-2 overflow-hidden shadow-md" style={{ borderRadius: '4.75% / 3.5%' }}>
+              <div className="w-full aspect-[5/7] mb-2 overflow-hidden shadow-md relative" style={{ borderRadius: '4.75% / 3.5%' }}>
                 <img
                   src={card.image_uris}
                   alt={card.name}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
+                {/* Tag badge */}
+                {parsedTags.length > 0 && (
+                  <div className="absolute top-1 right-1 bg-black/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-medium text-white shadow-lg">
+                    {parsedTags[0].name}
+                  </div>
+                )}
               </div>
             )}
 
