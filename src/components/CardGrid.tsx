@@ -72,13 +72,18 @@ export function CardGrid({ cards }: CardGridProps) {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                {/* Tag badge */}
+                {/* Tag badges */}
                 {parsedTags.length > 0 && (
-                  <div 
-                    className="absolute bottom-1 left-1 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-medium text-white shadow-lg"
-                    style={{ backgroundColor: 'var(--color-secondary-600)' }}
-                  >
-                    {parsedTags[0].name}
+                  <div className="absolute bottom-1 left-1 flex flex-col gap-1 max-h-[90%] overflow-y-auto">
+                    {parsedTags.slice(0, 5).map((tag, index) => (
+                      <div 
+                        key={index}
+                        className="backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-medium text-white shadow-lg"
+                        style={{ backgroundColor: 'var(--color-secondary-600)' }}
+                      >
+                        {tag.name}
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
