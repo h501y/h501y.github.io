@@ -74,7 +74,10 @@ export function CardGrid({ cards }: CardGridProps) {
                 />
                 {/* Tag badge */}
                 {parsedTags.length > 0 && (
-                  <div className="absolute top-1 right-1 bg-black/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-medium text-white shadow-lg">
+                  <div 
+                    className="absolute bottom-1 left-1 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-medium text-white shadow-lg"
+                    style={{ backgroundColor: 'var(--color-secondary-600)' }}
+                  >
                     {parsedTags[0].name}
                   </div>
                 )}
