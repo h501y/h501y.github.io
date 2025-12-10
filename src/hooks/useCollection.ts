@@ -153,30 +153,36 @@ export function useCollection() {
         const hasColorlessFilter = activeColors.includes('C')
         const queryColors = activeColors.filter(c => c !== 'C')
 
-        // CASO 1: Solo "C" selezionato → solo colorless
+        // If ONLY Colorless is selected, show only colorless cards
         if (hasColorlessFilter && queryColors.length === 0) {
           return isColorless
         }
 
-        // CASO 2: Colori selezionati (con o senza "C")
-        if (queryColors.length > 0) {
-          if (colorMode === 'exactly') {
-            // Esatto: match preciso, colorless solo se "C" selezionato
-            if (isColorless) return hasColorlessFilter
-            return queryColors.length === cardColors.length &&
-              queryColors.every(c => cardColors.includes(c))
-          } else if (colorMode === 'including') {
-            // Include (At Least): deve avere tutti i colori, colorless solo se "C" selezionato
-            if (isColorless) return hasColorlessFilter
-            return queryColors.every(c => cardColors.includes(c))
-          } else { // at_most
-            // At Most (Coverage - Default Scryfall): colorless SEMPRE incluso
-            if (isColorless) return true
-            return cardColors.every((c: string) => queryColors.includes(c))
-          }
+        // If Colorless is NOT selected, exclude colorless cards
+        if (!hasColorlessFilter && isColorless) {
+          return false
         }
 
-        return false
+        // If Colorless IS selected with other colors, include colorless cards
+        if (hasColorlessFilter && isColorless) {
+          return true
+        }
+
+        // Apply color mode logic for colored cards
+        if (colorMode === 'exactly') {
+          // Card must have EXACTLY these colors
+          if (cardColors.length !== queryColors.length) return false
+          return queryColors.every(c => cardColors.includes(c)) && 
+                 cardColors.every(c => queryColors.includes(c))
+        } else if (colorMode === 'including') {
+          // Card must INCLUDE at least these colors (can have more)
+          return queryColors.every(c => cardColors.includes(c))
+        } else if (colorMode === 'at_most') {
+          // Card must have AT MOST these colors (no colors outside the selection)
+          return cardColors.every(c => queryColors.includes(c))
+        }
+
+        return true
       })
     }
 
