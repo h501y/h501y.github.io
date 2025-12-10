@@ -199,27 +199,7 @@ export function useCollection() {
         } catch {
           return false
         }
-
-        const isColorless = cardIdentity.length === 0
-        const hasColorlessFilter = activeIdentityColors.includes('C')
-        const queryColors = activeIdentityColors.filter(c => c !== 'C')
-
-        // CASO 1: Solo "C" selezionato → solo colorless
-        if (hasColorlessFilter && queryColors.length === 0) {
-          return isColorless
-        }
-
-        // CASO 2: Colori selezionati
-        if (queryColors.length > 0) {
-          // Color Identity usa logica "Coverage" (at_most)
-          // Colorless SEMPRE incluso (può andare in qualsiasi mazzo)
-          if (isColorless) return true
-
-          // Carte colorate: devono avere solo i colori selezionati (o meno)
-          return cardIdentity.every(c => queryColors.includes(c))
-        }
-
-        return false
+        return cardIdentity.every(c => activeIdentityColors.includes(c))
       })
     }
 
