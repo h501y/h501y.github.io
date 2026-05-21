@@ -2,63 +2,22 @@
 <html lang="it" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="My Magic: The Gathering card collection" />
     <meta name="theme-color" content="#6366f1" />
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="MTG Collection">
     <title>Magic Card Collection</title>
-    <script type="module" crossorigin src="/assets/index-B4KzTLBY.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CvgZ6gOK.css">
+    <script type="module" crossorigin src="./assets/index-CI7d74Ls.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-q6oM6OXl.css">
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      if ('serviceWorker' in navigator) {
-        // Prevent multiple reloads with a flag
-        let isRefreshing = false;
-
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => {
-              console.log('SW registered');
-
-              // Check for updates every time the page loads
-              reg.update();
-
-              // Force update when a new service worker is waiting
-              reg.addEventListener('updatefound', () => {
-                const newWorker = reg.installing;
-                newWorker.addEventListener('statechange', () => {
-                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                    // New service worker available, reload the page (once)
-                    if (!isRefreshing) {
-                      isRefreshing = true;
-                      console.log('New SW available, reloading...');
-                      window.location.reload();
-                    }
-                  }
-                });
-              });
-            })
-            .catch(err => console.log('SW error:', err));
-
-          // Listen for controllerchange and reload (once)
-          navigator.serviceWorker.addEventListener('controllerchange', () => {
-            if (!isRefreshing) {
-              isRefreshing = true;
-              console.log('SW controller changed, reloading...');
-              window.location.reload();
-            }
-          });
-        });
-      }
-    </script>
   </body>
 </html>

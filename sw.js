@@ -21,25 +21,45 @@
 //    - Auto-reloads once when new version ready
 //    - isRefreshing flag prevents double-reload
 //
-// Result: Users get fresh data automatically, no manual hard refresh needed ✨
+// Result: Users get fresh data automatically, no manual hard refresh needed
 // =============================================================================
 
 const CACHE_VERSION = 24;
 const CACHE_NAME = `mtg-collection-v${CACHE_VERSION}`;
 const DATA_CACHE_NAME = `mtg-data-v${CACHE_VERSION}`;
 
+const SCOPE_PATH = (() => {
+  const scopeUrl = new URL(self.registration.scope);
+  return scopeUrl.pathname.endsWith('/') ? scopeUrl.pathname : `${scopeUrl.pathname}/`;
+})();
+
+function toScopedUrl(path) {
+  const normalizedPath = path.replace(/^\/+/, '');
+  return `${SCOPE_PATH}${normalizedPath}`;
+}
+
+const PRECACHE_URLS = [
+  toScopedUrl(''),
+  toScopedUrl('index.html'),
+  toScopedUrl('manifest.json'),
+  toScopedUrl('favicon.svg'),
+  toScopedUrl('favicon.ico'),
+  toScopedUrl('apple-touch-icon.png'),
+  toScopedUrl('collection-data.json')
+];
+
 // Install event - cache essential resources
 self.addEventListener('install', (event) => {
   console.log(`SW v${CACHE_VERSION} installing...`);
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll([
-        '/',
-        '/manifest.json',
-        '/favicon.svg',
-        '/favicon.ico',
-        '/apple-touch-icon.png'
-      ]);
+      return Promise.all(
+        PRECACHE_URLS.map((assetUrl) =>
+          cache.add(assetUrl).catch((error) => {
+            console.warn('SW precache skipped:', assetUrl, error);
+          })
+        )
+      );
     }).then(() => {
       console.log(`SW v${CACHE_VERSION} installed, skipping waiting...`);
       // Force the waiting service worker to become the active service worker
@@ -60,6 +80,7 @@ self.addEventListener('activate', (event) => {
             console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
+          return Promise.resolve(false);
         })
       );
     }).then(() => {
@@ -77,11 +98,19 @@ self.addEventListener('activate', (event) => {
 // - Cache-first for assets (fast loading)
 // - Automatic cache versioning and cleanup
 self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+
   const url = new URL(event.request.url);
 
   // Network-first strategy for Gist data (always fresh)
   // Fetches latest from gist.githubusercontent.com, falls back to cache if offline
   if (url.hostname === 'gist.githubusercontent.com' && url.pathname.includes('magic-collection.json')) {
+    const gistCacheKey = new Request(`${url.origin}${url.pathname}`, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'omit'
+    });
+
     event.respondWith(
       fetch(event.request, {
         mode: 'cors',
@@ -92,22 +121,24 @@ self.addEventListener('fetch', (event) => {
             throw new Error('Network response was not ok');
           }
           return caches.open(DATA_CACHE_NAME).then((cache) => {
-            cache.put(event.request, fetchResponse.clone());
+            cache.put(gistCacheKey, fetchResponse.clone());
             return fetchResponse;
           });
         })
         .catch((error) => {
           console.log('Gist fetch failed, trying cache:', error);
           // Fallback to cache if offline or error
-          return caches.match(event.request).then(cachedResponse => {
-            if (cachedResponse) {
-              return cachedResponse;
-            }
-            // Return a valid error response instead of undefined
-            return new Response(JSON.stringify({error: 'Failed to load data'}), {
-              status: 503,
-              statusText: 'Service Unavailable',
-              headers: {'Content-Type': 'application/json'}
+          return caches.open(DATA_CACHE_NAME).then((cache) => {
+            return cache.match(gistCacheKey).then((cachedResponse) => {
+              if (cachedResponse) {
+                return cachedResponse;
+              }
+              // Return a valid error response instead of undefined
+              return new Response(JSON.stringify({ error: 'Failed to load data' }), {
+                status: 503,
+                statusText: 'Service Unavailable',
+                headers: { 'Content-Type': 'application/json' }
+              });
             });
           });
         })
@@ -128,6 +159,8 @@ self.addEventListener('fetch', (event) => {
           });
         }
         return fetchResponse;
+      }).catch(() => {
+        return new Response(null, { status: 503, statusText: 'Service Unavailable' });
       });
     })
   );
