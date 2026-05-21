@@ -18,11 +18,23 @@ export interface UseCollectionDataResult {
   reloadData: () => Promise<void>
 }
 
-function readGistIdFromQuery(): string | null {
+const SAVED_GIST_ID_KEY = 'gist_id'
+
+function saveGistId(id: string): void {
+  try { localStorage.setItem(SAVED_GIST_ID_KEY, id) } catch { /* ignore */ }
+}
+
+function resolveGistId(): string | null {
   if (typeof window === 'undefined') return null
+  // 1. URL param → use it and persist for future visits
   const params = new URLSearchParams(window.location.search)
-  const raw = params.get('gist')
-  return raw?.trim() || null
+  const fromUrl = params.get('gist')?.trim() || null
+  if (fromUrl) {
+    saveGistId(fromUrl)
+    return fromUrl
+  }
+  // 2. Saved in localStorage (same key as Desktop/Mobile apps)
+  try { return localStorage.getItem(SAVED_GIST_ID_KEY) || null } catch { return null }
 }
 
 function buildGistRawUrl(gistId: string): string {
@@ -42,13 +54,13 @@ function buildRequestUrl(url: string): string {
 }
 
 export function useCollectionData(): UseCollectionDataResult {
-  const gistId = useMemo(() => readGistIdFromQuery(), [])
+  const gistId = useMemo(() => resolveGistId(), [])
   const gistUrl = useMemo(() => (gistId ? buildGistRawUrl(gistId) : null), [gistId])
 
   const [data, setData] = useState<WebCollectionData | null>(null)
   const [isLoading, setIsLoading] = useState(gistUrl !== null)
   const [error, setError] = useState<string | null>(
-    gistId === null ? 'Link non valido — inserisci un link con ?gist=<id>' : null
+    gistId === null ? 'no-gist-configured' : null
   )
   const [dataSource, setDataSource] = useState<CollectionDataSource | null>(null)
   const [isDataStale, setIsDataStale] = useState(false)
@@ -56,7 +68,7 @@ export function useCollectionData(): UseCollectionDataResult {
 
   const loadData = useCallback(async (externalSignal?: AbortSignal) => {
     if (!gistUrl || !gistId) {
-      setError('Link non valido — inserisci un link con ?gist=<id>')
+      setError('no-gist-configured')
       setIsLoading(false)
       return
     }
