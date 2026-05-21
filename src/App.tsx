@@ -10,21 +10,6 @@ import { applyScryfallInlineFilters } from './utils/scryfallInlineFilter'
 import { lightHaptic, mediumHaptic } from './utils/haptics'
 import type { SortField, StatOperator, StatType } from './types'
 
-function FirstRunPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="state-panel p-8 rounded-xl max-w-sm w-full text-center animate-fade-in">
-        <AppLogo className="mx-auto mb-6" />
-        <h2 className="text-xl font-semibold mb-3">Magic Collection Viewer</h2>
-        <p className="text-sm" style={{ color: 'var(--color-gray-400)' }}>
-          Apri il link di condivisione dall'app per visualizzare la tua collezione.
-          La prossima volta verrà caricata automaticamente.
-        </p>
-      </div>
-    </div>
-  )
-}
-
 type ViewMode = 'home' | 'results' | 'advanced'
 const HISTORY_VIEW_MODE_KEY = '__mc_view_mode'
 
@@ -376,9 +361,6 @@ export default function App() {
   }
 
   if (collection.error) {
-    if (collection.error === 'no-gist-configured') {
-      return <FirstRunPage />
-    }
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="state-panel p-8 rounded-xl max-w-md w-full text-center animate-fade-in">

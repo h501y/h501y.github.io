@@ -6,6 +6,13 @@ import { guardedFetch } from '../utils/fetchGuard'
 
 const VERSION_STORAGE_KEY = 'collectionVersion'
 const FETCH_TIMEOUT_MS = 6000
+const LOCAL_FALLBACK_URL = './collection-data.json'
+
+function readGistIdFromQuery(): string | null {
+  if (typeof window === 'undefined') return null
+  const params = new URLSearchParams(window.location.search)
+  return params.get('gist')?.trim() || null
+}
 
 export type CollectionDataSource = 'gist' | 'fallback' | 'cache'
 
@@ -18,31 +25,6 @@ export interface UseCollectionDataResult {
   reloadData: () => Promise<void>
 }
 
-const SAVED_GIST_ID_KEY = 'gist_id'
-
-function saveGistId(id: string): void {
-  try { localStorage.setItem(SAVED_GIST_ID_KEY, id) } catch { /* ignore */ }
-}
-
-function resolveGistId(): string | null {
-  if (typeof window === 'undefined') return null
-  // 1. URL param → use it and persist for future visits
-  const params = new URLSearchParams(window.location.search)
-  const fromUrl = params.get('gist')?.trim() || null
-  if (fromUrl) {
-    saveGistId(fromUrl)
-    return fromUrl
-  }
-  // 2. Saved in localStorage (same key as Desktop/Mobile apps)
-  try { return localStorage.getItem(SAVED_GIST_ID_KEY) || null } catch { return null }
-}
-
-function buildGistRawUrl(gistId: string): string {
-  // GitHub serves raw content via this path; the redirect handles the
-  // owner lookup so we only need the gist ID.
-  return `https://gist.githubusercontent.com/${gistId}/raw/magic-collection.json`
-}
-
 function buildRequestUrl(url: string): string {
   if (!url.includes('gist.githubusercontent.com')) {
     return url
@@ -53,22 +35,27 @@ function buildRequestUrl(url: string): string {
   return requestUrl.toString()
 }
 
+function buildGistRawUrl(gistId: string): string {
+  return `https://gist.githubusercontent.com/${gistId}/raw/magic-collection.json`
+}
+
 export function useCollectionData(): UseCollectionDataResult {
-  const gistId = useMemo(() => resolveGistId(), [])
-  const gistUrl = useMemo(() => (gistId ? buildGistRawUrl(gistId) : null), [gistId])
+  const gistId = useMemo(() => readGistIdFromQuery(), [])
+  const activeUrl = useMemo(
+    () => gistId ? buildGistRawUrl(gistId) : LOCAL_FALLBACK_URL,
+    [gistId]
+  )
+  const activeSource: CollectionDataSource = gistId ? 'gist' : 'fallback'
 
   const [data, setData] = useState<WebCollectionData | null>(null)
-  const [isLoading, setIsLoading] = useState(gistUrl !== null)
-  const [error, setError] = useState<string | null>(
-    gistId === null ? 'no-gist-configured' : null
-  )
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [dataSource, setDataSource] = useState<CollectionDataSource | null>(null)
   const [isDataStale, setIsDataStale] = useState(false)
   const dataSourceRef = useRef<CollectionDataSource | null>(null)
 
   const loadData = useCallback(async (externalSignal?: AbortSignal) => {
-    if (!gistUrl || !gistId) {
-      setError('no-gist-configured')
+    if (!activeUrl) {
       setIsLoading(false)
       return
     }
@@ -141,8 +128,8 @@ export function useCollectionData(): UseCollectionDataResult {
         }
       }
 
-      const json = await fetchCollection(gistUrl)
-      applyLoadedData(json, 'gist')
+      const json = await fetchCollection(activeUrl)
+      applyLoadedData(json, activeSource)
     } catch (gistError) {
       if (gistError instanceof Error && gistError.name === 'AbortError') return
       console.warn('Gist fetch failed, trying local cache.', gistError)
@@ -159,11 +146,9 @@ export function useCollectionData(): UseCollectionDataResult {
     } finally {
       setIsLoading(false)
     }
-  }, [gistId, gistUrl])
+  }, [gistId, activeUrl, activeSource])
 
   useEffect(() => {
-    if (!gistUrl) return
-
     const controller = new AbortController()
     void loadData(controller.signal)
 
@@ -184,7 +169,7 @@ export function useCollectionData(): UseCollectionDataResult {
       onlineController?.abort()
       window.removeEventListener('online', handleOnline)
     }
-  }, [loadData, gistUrl])
+  }, [loadData])
 
   return {
     data,
