@@ -10,6 +10,66 @@ import { applyScryfallInlineFilters } from './utils/scryfallInlineFilter'
 import { lightHaptic, mediumHaptic } from './utils/haptics'
 import type { SortField, StatOperator, StatType } from './types'
 
+function extractGistId(input: string): string | null {
+  const trimmed = input.trim()
+  if (!trimmed) return null
+  // Full gist URL: https://gist.github.com/<user>/<id>
+  const urlMatch = trimmed.match(/gist\.github(?:usercontent)?\.com\/[^/]+\/([a-f0-9]+)/i)
+  if (urlMatch) return urlMatch[1]
+  // Plain ID (hex string)
+  if (/^[a-f0-9]{20,}$/i.test(trimmed)) return trimmed
+  return null
+}
+
+function GistInputPage() {
+  const [value, setValue] = useState('')
+  const [error, setError] = useState(false)
+
+  const handleOpen = () => {
+    const id = extractGistId(value)
+    if (!id) { setError(true); return }
+    window.location.search = `?gist=${id}`
+  }
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="state-panel p-8 rounded-xl max-w-sm w-full text-center animate-fade-in">
+        <AppLogo className="mx-auto mb-6" />
+        <h2 className="text-xl font-semibold mb-1">Magic Collection Viewer</h2>
+        <p className="text-sm mb-6" style={{ color: 'var(--color-gray-400)' }}>
+          Incolla il link condiviso dall'app per visualizzare una collezione.
+        </p>
+        <input
+          type="text"
+          placeholder="https://gist.github.com/… oppure ID gist"
+          value={value}
+          onChange={e => { setValue(e.target.value); setError(false) }}
+          onKeyDown={e => e.key === 'Enter' && handleOpen()}
+          className="w-full text-sm px-3 py-2 rounded-lg mb-1 outline-none"
+          style={{
+            background: 'var(--color-surface-2)',
+            border: `1px solid ${error ? 'var(--color-error-500)' : 'rgba(255,255,255,0.15)'}`,
+            color: 'var(--color-gray-100)'
+          }}
+          autoFocus
+        />
+        {error && (
+          <p className="text-xs mb-3 text-left" style={{ color: 'var(--color-error-500)' }}>
+            Link o ID non riconosciuto.
+          </p>
+        )}
+        <button
+          onClick={handleOpen}
+          className="mt-3 w-full py-2 rounded-lg text-sm font-medium transition-colors hover:opacity-90"
+          style={{ background: 'var(--color-primary-500)', color: '#fff' }}
+        >
+          Visualizza
+        </button>
+      </div>
+    </div>
+  )
+}
+
 type ViewMode = 'home' | 'results' | 'advanced'
 const HISTORY_VIEW_MODE_KEY = '__mc_view_mode'
 
@@ -361,6 +421,10 @@ export default function App() {
   }
 
   if (collection.error) {
+    const noGistId = !new URLSearchParams(window.location.search).get('gist')?.trim()
+    if (noGistId) {
+      return <GistInputPage />
+    }
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="state-panel p-8 rounded-xl max-w-md w-full text-center animate-fade-in">
