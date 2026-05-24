@@ -6,15 +6,30 @@ import { guardedFetch } from '../utils/fetchGuard'
 
 const FETCH_TIMEOUT_MS = 8000
 
-// Hardcoded gist id that holds the published collection. The mobile
-// publisher writes to this gist. `?gist=<id>` is honored as an override
-// for testing only.
-const DEFAULT_GIST_ID = '8a09b4a605cd230d3088a7e6eb2a558a'
+// Hardcoded gist that holds the published collection. The mobile
+// publisher writes to this exact gist. GitHub's raw URL requires the
+// owner's username — passing just the gist id returns HTTP 400.
+//
+// `?gist=<id>` is honored as an override for testing, defaulting to
+// the same owner. Use `?gist=<user>/<id>` to also override the owner.
+const DEFAULT_GIST_OWNER = 'h501y'
+const DEFAULT_GIST_ID = '4e0cccc091fe0b9570ca1c70aba90d26'
 
-function readGistIdFromQuery(): string | null {
+interface GistRef {
+  owner: string
+  id: string
+}
+
+function readGistFromQuery(): GistRef | null {
   if (typeof window === 'undefined') return null
-  const params = new URLSearchParams(window.location.search)
-  return params.get('gist')?.trim() || null
+  const raw = new URLSearchParams(window.location.search).get('gist')?.trim()
+  if (!raw) return null
+  if (raw.includes('/')) {
+    const [owner, id] = raw.split('/', 2)
+    if (owner && id) return { owner, id }
+    return null
+  }
+  return { owner: DEFAULT_GIST_OWNER, id: raw }
 }
 
 export type CollectionDataSource = 'gist' | 'cache'
@@ -27,8 +42,8 @@ export interface UseCollectionDataResult {
   reloadData: () => Promise<void>
 }
 
-function buildGistRawUrl(gistId: string): string {
-  return `https://gist.githubusercontent.com/${gistId}/raw/magic-collection.json`
+function buildGistRawUrl(ref: GistRef): string {
+  return `https://gist.githubusercontent.com/${ref.owner}/${ref.id}/raw/magic-collection.json`
 }
 
 // Network-first by design. The viewer must NEVER show a stale payload
@@ -38,11 +53,15 @@ function buildGistRawUrl(gistId: string): string {
 // cache exists solely as an offline fallback — it is shown only when
 // the network request itself fails.
 export function useCollectionData(): UseCollectionDataResult {
-  const gistId = useMemo(
-    () => readGistIdFromQuery() ?? DEFAULT_GIST_ID,
+  const gistRef = useMemo<GistRef>(
+    () => readGistFromQuery() ?? { owner: DEFAULT_GIST_OWNER, id: DEFAULT_GIST_ID },
     []
   )
-  const activeUrl = useMemo(() => buildGistRawUrl(gistId), [gistId])
+  const activeUrl = useMemo(() => buildGistRawUrl(gistRef), [gistRef])
+  // Cache key is namespaced by id only — the owner is implicit (gist
+  // ids are globally unique) and keeping the key short avoids breaking
+  // existing localStorage entries when the owner string is added later.
+  const cacheKey = gistRef.id
 
   const [data, setData] = useState<WebCollectionData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -89,7 +108,7 @@ export function useCollectionData(): UseCollectionDataResult {
       setDataSource('gist')
       setError(null)
       hasFreshDataRef.current = true
-      saveCollectionDataCache(normalized, gistId)
+      saveCollectionDataCache(normalized, cacheKey)
     } catch (fetchError) {
       if (fetchError instanceof Error && fetchError.name === 'AbortError') return
 
@@ -102,7 +121,7 @@ export function useCollectionData(): UseCollectionDataResult {
         return
       }
 
-      const cached = loadCollectionDataCache(gistId)
+      const cached = loadCollectionDataCache(cacheKey)
       if (cached) {
         setData(cached)
         setDataSource('cache')
@@ -121,7 +140,7 @@ export function useCollectionData(): UseCollectionDataResult {
       }
       setIsLoading(false)
     }
-  }, [activeUrl, gistId])
+  }, [activeUrl, cacheKey])
 
   useEffect(() => {
     void loadData()
