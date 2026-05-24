@@ -61,19 +61,19 @@ export function useCollectionData(): UseCollectionDataResult {
 
     const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
 
-    // Cache-busting query param defeats GitHub raw CDN caching and any
-    // intermediate browser cache that might ignore the headers below.
+    // Cache-busting query param defeats GitHub raw CDN caching. We
+    // intentionally do NOT set Cache-Control / Pragma request headers:
+    // they are not CORS-safelisted, so adding them would force a
+    // preflight OPTIONS that gist.githubusercontent.com does not
+    // accept (Failed to fetch). cache: 'no-store' + the unique _ts
+    // param are sufficient to bypass every intermediate cache.
     const requestUrl = new URL(activeUrl)
     requestUrl.searchParams.set('_ts', String(Date.now()))
 
     try {
       const response = await guardedFetch(requestUrl.toString(), {
         cache: 'no-store',
-        signal: controller.signal,
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache'
-        }
+        signal: controller.signal
       })
 
       if (!response.ok) {
