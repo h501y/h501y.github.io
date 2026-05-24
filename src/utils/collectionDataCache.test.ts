@@ -1,6 +1,6 @@
 import { afterAll, afterEach, beforeEach, describe, expect, it } from 'vitest'
 import type { WebCollectionData } from '../types'
-import { isDatasetStale, loadCollectionDataCache, saveCollectionDataCache } from './collectionDataCache'
+import { loadCollectionDataCache, saveCollectionDataCache } from './collectionDataCache'
 
 class MemoryStorage implements Storage {
   private store = new Map<string, string>()
@@ -98,6 +98,17 @@ describe('collectionDataCache', () => {
     expect(cached).toEqual(data)
   })
 
+  it('namespaces cache by gist id', () => {
+    const dataA = makeData()
+    const dataB = { ...makeData(), version: '2.0.0' }
+
+    saveCollectionDataCache(dataA, 'aaa')
+    saveCollectionDataCache(dataB, 'bbb')
+
+    expect(loadCollectionDataCache('aaa')).toEqual(dataA)
+    expect(loadCollectionDataCache('bbb')).toEqual(dataB)
+  })
+
   it('returns null for malformed cache data', () => {
     localStorage.setItem('collectionDataCache', '{"broken":true}')
     expect(loadCollectionDataCache()).toBeNull()
@@ -107,27 +118,5 @@ describe('collectionDataCache', () => {
     setLocalStorage(undefined)
     expect(loadCollectionDataCache()).toBeNull()
     expect(() => saveCollectionDataCache(makeData())).not.toThrow()
-  })
-
-  it('detects stale datasets from exported_at with high-precision timestamps', () => {
-    const now = Date.parse('2026-03-08T00:00:00.000Z')
-    const staleData = { ...makeData(), exported_at: '2026-02-20T10:25:50.130826200+00:00' }
-    const freshData = { ...makeData(), exported_at: '2026-03-06T10:25:50.130826200+00:00' }
-
-    expect(isDatasetStale(staleData, now)).toBe(true)
-    expect(isDatasetStale(freshData, now)).toBe(false)
-  })
-
-  it('falls back to cacheVersion epoch when date strings are not parseable', () => {
-    const now = Date.parse('2026-03-08T00:00:00.000Z')
-    const staleEpochSeconds = Math.floor((now - 10 * 24 * 60 * 60 * 1000) / 1000)
-
-    const data = {
-      ...makeData(),
-      exported_at: 'invalid-date',
-      cacheVersion: staleEpochSeconds
-    }
-
-    expect(isDatasetStale(data, now)).toBe(true)
   })
 })

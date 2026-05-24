@@ -5,47 +5,36 @@ import './index.css'
 import './styles/theme.css'
 import { installFetchGuard } from './utils/fetchGuard'
 
-const APP_BASE_URL = import.meta.env.BASE_URL
+// Nuke any previously-installed service worker and its caches.
+// Returning visitors may have an old SW from a prior build still
+// intercepting fetches and serving stale gist data. Unregister it
+// once, on every page load, until the browser stops reporting it.
+// This is intentionally fire-and-forget: a failure here must never
+// block the app from rendering.
+function purgeServiceWorker(): void {
+  if (typeof navigator === 'undefined') return
 
-function registerServiceWorker(): void {
-  if (typeof window === 'undefined') return
-  if (!('serviceWorker' in navigator)) return
-
-  let isRefreshing = false
-
-  window.addEventListener('load', () => {
+  if ('serviceWorker' in navigator) {
     void navigator.serviceWorker
-      .register(`${APP_BASE_URL}sw.js`)
-      .then((reg) => {
-        if (import.meta.env.DEV) console.log('SW registered')
-        void reg.update()
-
-        reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing
-          if (!newWorker) return
-
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller && !isRefreshing) {
-              isRefreshing = true
-              if (import.meta.env.DEV) console.log('New SW available, reloading...')
-              window.location.reload()
-            }
-          })
-        })
+      .getRegistrations()
+      .then((registrations) => {
+        for (const reg of registrations) {
+          void reg.unregister()
+        }
       })
-      .catch((err) => { if (import.meta.env.DEV) console.log('SW error:', err) })
+      .catch(() => undefined)
+  }
 
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (isRefreshing) return
-      isRefreshing = true
-      if (import.meta.env.DEV) console.log('SW controller changed, reloading...')
-      window.location.reload()
-    })
-  })
+  if (typeof caches !== 'undefined') {
+    void caches
+      .keys()
+      .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+      .catch(() => undefined)
+  }
 }
 
 installFetchGuard()
-registerServiceWorker()
+purgeServiceWorker()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

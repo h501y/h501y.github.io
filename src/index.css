@@ -351,6 +351,207 @@
   .animate-slide-up {
     animation: slideUp 0.4s ease-out;
   }
+
+  /* ==============================
+   * MINIMAL VIEWER — search + sortable virtual table
+   * ============================== */
+
+  .viewer-shell {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  }
+
+  .viewer-topbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--surface-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    position: sticky;
+    top: 0;
+    z-index: 30;
+  }
+
+  .viewer-search-slot {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .viewer-theme-toggle {
+    height: 44px;
+    width: 44px;
+    min-height: 44px;
+    flex: none;
+    border-radius: var(--radius-md);
+    background: var(--field-bg);
+    border: 1px solid var(--field-border);
+    color: var(--color-gray-200);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+  }
+
+  .viewer-status {
+    font-size: 0.75rem;
+    color: var(--color-gray-500);
+    padding: 0.4rem 1rem 0.5rem;
+    border-bottom: 1px solid var(--surface-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .viewer-status[data-offline="true"] {
+    color: var(--color-warning-500);
+  }
+
+  .table-wrapper {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table-head {
+    display: grid;
+    grid-template-columns: 1fr 84px 84px;
+    align-items: center;
+    gap: 0;
+    padding: 0 0.75rem;
+    border-bottom: 1px solid var(--surface-border);
+    background: var(--surface-soft);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-gray-400);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+
+  .table-sort-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    height: 40px;
+    min-height: 40px;
+    padding: 0 0.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+  .table-sort-header[data-align="right"] {
+    justify-content: flex-end;
+  }
+  .table-sort-header[data-align="center"] {
+    justify-content: center;
+  }
+  .table-sort-header[data-active] {
+    color: var(--color-primary-200);
+  }
+  .table-sort-arrow {
+    font-size: 0.85em;
+    width: 0.9em;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .table-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--color-primary-rgb), 0.42) transparent;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 1fr 84px 84px;
+    align-items: center;
+    gap: 0;
+    padding: 0 0.75rem;
+    left: 0;
+    right: 0;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid var(--surface-border);
+    transition: background var(--transition-fast);
+  }
+  .table-row:hover {
+    background: var(--overlay-white-5);
+  }
+  .table-row:focus-visible {
+    background: var(--overlay-white-10);
+    outline: none;
+  }
+
+  .table-cell-name {
+    min-width: 0;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.1rem;
+  }
+  .table-card-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-gray-100);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .table-card-italian {
+    font-size: 0.78rem;
+    color: var(--color-gray-500);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .table-cell-rarity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+  }
+  .table-rarity-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
+  }
+
+  .table-cell-qty {
+    text-align: right;
+    padding: 0 0.5rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: var(--color-gray-200);
+  }
+
+  .table-empty {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    color: var(--color-gray-500);
+    font-size: 0.95rem;
+  }
 }
 
 @layer utilities {

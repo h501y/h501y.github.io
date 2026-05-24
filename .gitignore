@@ -32,3 +32,6 @@ pnpm-debug.log*
 
 # Testing
 coverage/
+
+# Development notes / handoff prompts (not part of the shipped app)
+docs/

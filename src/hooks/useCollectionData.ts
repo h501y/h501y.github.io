@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { WebCollectionData } from '../types'
 import { normalizeCollectionData } from '../utils/normalizeCollectionData'
-import { isCacheStale, isDatasetStale, loadCollectionDataCache, saveCollectionDataCache } from '../utils/collectionDataCache'
+import { loadCollectionDataCache, saveCollectionDataCache } from '../utils/collectionDataCache'
 import { guardedFetch } from '../utils/fetchGuard'
 
-const VERSION_STORAGE_KEY = 'collectionVersion'
-const FETCH_TIMEOUT_MS = 6000
-const LOCAL_FALLBACK_URL = './collection-data.json'
+const FETCH_TIMEOUT_MS = 8000
+
+// Hardcoded gist id that holds the published collection. The mobile
+// publisher writes to this gist. `?gist=<id>` is honored as an override
+// for testing only.
+const DEFAULT_GIST_ID = '8a09b4a605cd230d3088a7e6eb2a558a'
 
 function readGistIdFromQuery(): string | null {
   if (typeof window === 'undefined') return null
@@ -14,159 +17,138 @@ function readGistIdFromQuery(): string | null {
   return params.get('gist')?.trim() || null
 }
 
-export type CollectionDataSource = 'gist' | 'fallback' | 'cache'
+export type CollectionDataSource = 'gist' | 'cache'
 
 export interface UseCollectionDataResult {
   data: WebCollectionData | null
   isLoading: boolean
   error: string | null
   dataSource: CollectionDataSource | null
-  isDataStale: boolean
   reloadData: () => Promise<void>
-}
-
-function buildRequestUrl(url: string): string {
-  if (!url.includes('gist.githubusercontent.com')) {
-    return url
-  }
-  // Force cache-busting to avoid stale CDN/browser responses.
-  const requestUrl = new URL(url)
-  requestUrl.searchParams.set('_ts', String(Date.now()))
-  return requestUrl.toString()
 }
 
 function buildGistRawUrl(gistId: string): string {
   return `https://gist.githubusercontent.com/${gistId}/raw/magic-collection.json`
 }
 
+// Network-first by design. The viewer must NEVER show a stale payload
+// when the user has connectivity: every page open, tab focus, or online
+// event triggers a fresh fetch from the gist with all intermediate
+// caches bypassed (CDN, browser, ex-service-worker). The localStorage
+// cache exists solely as an offline fallback — it is shown only when
+// the network request itself fails.
 export function useCollectionData(): UseCollectionDataResult {
-  const gistId = useMemo(() => readGistIdFromQuery(), [])
-  const activeUrl = useMemo(
-    () => gistId ? buildGistRawUrl(gistId) : LOCAL_FALLBACK_URL,
-    [gistId]
+  const gistId = useMemo(
+    () => readGistIdFromQuery() ?? DEFAULT_GIST_ID,
+    []
   )
-  const activeSource: CollectionDataSource = gistId ? 'gist' : 'fallback'
+  const activeUrl = useMemo(() => buildGistRawUrl(gistId), [gistId])
 
   const [data, setData] = useState<WebCollectionData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [dataSource, setDataSource] = useState<CollectionDataSource | null>(null)
-  const [isDataStale, setIsDataStale] = useState(false)
-  const dataSourceRef = useRef<CollectionDataSource | null>(null)
+  const inFlightController = useRef<AbortController | null>(null)
+  const hasFreshDataRef = useRef(false)
 
-  const loadData = useCallback(async (externalSignal?: AbortSignal) => {
-    if (!activeUrl) {
-      setIsLoading(false)
-      return
-    }
+  const loadData = useCallback(async (): Promise<void> => {
+    // Cancel any previous fetch — only the latest call wins, so a quick
+    // sequence of visibilitychange/focus events cannot leave a stale
+    // response racing the current one.
+    inFlightController.current?.abort()
+    const controller = new AbortController()
+    inFlightController.current = controller
 
-    async function fetchCollection(url: string): Promise<WebCollectionData> {
-      const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
+    const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
 
-      if (externalSignal) {
-        externalSignal.addEventListener('abort', () => controller.abort(), { once: true })
-      }
-
-      try {
-        const requestUrl = buildRequestUrl(url)
-        const response = await guardedFetch(requestUrl, { cache: 'no-store', signal: controller.signal })
-        if (!response.ok) {
-          throw new Error(`Failed to fetch ${url}: ${response.status}`)
-        }
-        return response.json() as Promise<WebCollectionData>
-      } finally {
-        clearTimeout(timeoutId)
-      }
-    }
-
-    function persistVersion(json: WebCollectionData) {
-      const cacheVersion = json.cacheVersion || json.exported_at || json.version
-      try {
-        const lastVersion = localStorage.getItem(VERSION_STORAGE_KEY)
-        if (lastVersion !== String(cacheVersion)) {
-          if (import.meta.env.DEV) console.log(`New collection version detected: ${cacheVersion} (was: ${lastVersion || 'none'})`)
-          localStorage.setItem(VERSION_STORAGE_KEY, String(cacheVersion))
-        } else {
-          if (import.meta.env.DEV) console.log(`Collection up to date (v${cacheVersion})`)
-        }
-      } catch {
-        console.warn('Could not persist collection version to localStorage')
-      }
-    }
-
-    function applyLoadedData(rawData: WebCollectionData, source: CollectionDataSource) {
-      const json = normalizeCollectionData(rawData)
-      persistVersion(json)
-      if (source === 'gist') {
-        saveCollectionDataCache(json, gistId ?? undefined)
-      }
-      const staleByDatasetAge = isDatasetStale(json)
-      const staleByCacheAge = source === 'cache' && isCacheStale(gistId ?? undefined)
-      if (import.meta.env.DEV) console.log(`Loaded ${json.cards?.length || 0} cards from ${source}`)
-      if (import.meta.env.DEV && json.lastUpdated) {
-        console.log(`Last updated: ${json.lastUpdated}`)
-      }
-      setData(json)
-      setDataSource(source)
-      dataSourceRef.current = source
-      setIsDataStale(staleByDatasetAge || staleByCacheAge)
-      setError(null)
-    }
-
-    const hadDataBeforeLoad = dataSourceRef.current !== null
-    const cachedData = loadCollectionDataCache(gistId ?? undefined)
+    // Cache-busting query param defeats GitHub raw CDN caching and any
+    // intermediate browser cache that might ignore the headers below.
+    const requestUrl = new URL(activeUrl)
+    requestUrl.searchParams.set('_ts', String(Date.now()))
 
     try {
-      if (!hadDataBeforeLoad) {
-        if (cachedData) {
-          // Render cached data immediately, then revalidate from Gist in background.
-          applyLoadedData(cachedData, 'cache')
-          setIsLoading(false)
-        } else {
-          setIsLoading(true)
+      const response = await guardedFetch(requestUrl.toString(), {
+        cache: 'no-store',
+        signal: controller.signal,
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache'
         }
+      })
+
+      if (!response.ok) {
+        throw new Error(`Gist fetch failed: ${response.status}`)
       }
 
-      const json = await fetchCollection(activeUrl)
-      applyLoadedData(json, activeSource)
-    } catch (gistError) {
-      if (gistError instanceof Error && gistError.name === 'AbortError') return
-      console.warn('Gist fetch failed, trying local cache.', gistError)
+      const rawJson = (await response.json()) as WebCollectionData
+      const normalized = normalizeCollectionData(rawJson)
 
-      if (cachedData && !hadDataBeforeLoad) {
-        applyLoadedData(cachedData, 'cache')
-      } else if (!hadDataBeforeLoad) {
-        const errorMessage = gistError instanceof Error ? gistError.message : 'Unknown error'
-        console.error('Failed to load collection:', errorMessage)
-        setError(errorMessage)
-        setDataSource(null)
-        dataSourceRef.current = null
+      if (controller.signal.aborted) return
+
+      setData(normalized)
+      setDataSource('gist')
+      setError(null)
+      hasFreshDataRef.current = true
+      saveCollectionDataCache(normalized, gistId)
+    } catch (fetchError) {
+      if (fetchError instanceof Error && fetchError.name === 'AbortError') return
+
+      // Network failure: fall back to cache ONLY if we have nothing
+      // fresh on screen yet. If the user is already viewing a live
+      // payload from a previous successful fetch in this session, keep
+      // showing it rather than downgrading to a stale cache.
+      if (hasFreshDataRef.current) {
+        console.warn('Gist revalidation failed; keeping current live data.', fetchError)
+        return
       }
+
+      const cached = loadCollectionDataCache(gistId)
+      if (cached) {
+        setData(cached)
+        setDataSource('cache')
+        setError(null)
+        console.warn('Gist fetch failed; serving offline cache.', fetchError)
+        return
+      }
+
+      const message = fetchError instanceof Error ? fetchError.message : 'Errore di rete'
+      setError(message)
+      setDataSource(null)
     } finally {
+      clearTimeout(timeoutId)
+      if (inFlightController.current === controller) {
+        inFlightController.current = null
+      }
       setIsLoading(false)
     }
-  }, [gistId, activeUrl, activeSource])
+  }, [activeUrl, gistId])
 
   useEffect(() => {
-    const controller = new AbortController()
-    void loadData(controller.signal)
+    void loadData()
 
-    let onlineController: AbortController | null = null
-    const handleOnline = () => {
-      if (dataSourceRef.current === 'cache' || dataSourceRef.current === 'fallback' || dataSourceRef.current === null) {
-        if (import.meta.env.DEV) console.log('Network back online - reloading collection data.')
-        onlineController?.abort()
-        onlineController = new AbortController()
-        void loadData(onlineController.signal)
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        void loadData()
       }
     }
 
+    const handleFocus = () => {
+      void loadData()
+    }
+
+    const handleOnline = () => {
+      void loadData()
+    }
+
+    document.addEventListener('visibilitychange', handleVisibility)
+    window.addEventListener('focus', handleFocus)
     window.addEventListener('online', handleOnline)
 
     return () => {
-      controller.abort()
-      onlineController?.abort()
+      inFlightController.current?.abort()
+      inFlightController.current = null
+      document.removeEventListener('visibilitychange', handleVisibility)
+      window.removeEventListener('focus', handleFocus)
       window.removeEventListener('online', handleOnline)
     }
   }, [loadData])
@@ -176,7 +158,6 @@ export function useCollectionData(): UseCollectionDataResult {
     isLoading,
     error,
     dataSource,
-    isDataStale,
-    reloadData: () => loadData()
+    reloadData: loadData
   }
 }
