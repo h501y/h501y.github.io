@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { Card } from '../types'
 import { rarityColor, scryfallUrlFor, type SortDirection, type SortField } from '../utils/searchCards'
 
@@ -10,7 +11,10 @@ interface CollectionTableProps {
 
 interface HeaderCellProps {
   field: SortField
-  label: string
+  /** What renders inside the column header (text or a glyph). */
+  label: ReactNode
+  /** Plain text used for the accessible aria-label; falls back to `label`. */
+  labelText: string
   currentField: SortField
   currentDirection: SortDirection
   onClick: (field: SortField) => void
@@ -20,6 +24,7 @@ interface HeaderCellProps {
 function HeaderCell({
   field,
   label,
+  labelText,
   currentField,
   currentDirection,
   onClick,
@@ -32,9 +37,9 @@ function HeaderCell({
       <button
         type="button"
         onClick={() => onClick(field)}
-        aria-label={`Ordina per ${label}${active ? ` (${currentDirection === 'asc' ? 'crescente' : 'decrescente'})` : ''}`}
+        aria-label={`Ordina per ${labelText}${active ? ` (${currentDirection === 'asc' ? 'crescente' : 'decrescente'})` : ''}`}
       >
-        <span>{label}</span>
+        <span className="th-label">{label}</span>
         <span className="th-arrow" aria-hidden="true">{arrow}</span>
       </button>
     </th>
@@ -68,13 +73,15 @@ export function CollectionTable({
             <HeaderCell
               field="name"
               label="Nome"
+              labelText="Nome"
               currentField={sortField}
               currentDirection={sortDirection}
               onClick={onChangeSort}
             />
             <HeaderCell
               field="rarity"
-              label="Rarità"
+              label={<span className="th-rarity-glyph" aria-hidden="true">●</span>}
+              labelText="Rarità"
               currentField={sortField}
               currentDirection={sortDirection}
               onClick={onChangeSort}
@@ -83,6 +90,7 @@ export function CollectionTable({
             <HeaderCell
               field="quantity"
               label="Qtà"
+              labelText="Quantità"
               currentField={sortField}
               currentDirection={sortDirection}
               onClick={onChangeSort}
