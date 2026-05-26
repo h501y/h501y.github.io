@@ -457,7 +457,6 @@
     .collection-table .col-qty    { width: 56px; }
     .collection-table thead th button { padding: 0 0.6rem; gap: 0.2rem; }
     .cell-name-link { padding: 0.5rem 0.6rem; }
-    .cell-qty { padding: 0.5rem 0.6rem 0 0; }
   }
 
   .collection-table thead th {
@@ -493,6 +492,18 @@
   }
   .collection-table thead th[data-align="center"] button {
     padding: 0;
+    position: relative;
+  }
+  /* For the centred column (quantity) we want the label visually
+   * centred over the numbers below. The sort arrow is always rendered
+   * (even when empty, to prevent layout jump on click) so we lift it
+   * out of the flex flow with position:absolute — the label is then
+   * centred by itself and aligns with the centred numbers. */
+  .collection-table thead th[data-align="center"] button .th-arrow {
+    position: absolute;
+    right: 0.4rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
   .collection-table thead th[data-align="right"] button {
     justify-content: flex-end;
@@ -526,13 +537,6 @@
     padding: 0;
     vertical-align: middle;
   }
-  /* Rarity stays centred across the whole row; quantity is anchored to
-   * the first text line of the name so that, when the row also shows
-   * the italian subtitle, the number sits next to the english name and
-   * does not visually drift downward to the row's mid-point. */
-  .collection-table td.cell-qty {
-    vertical-align: top;
-  }
 
   .cell-name {
     min-width: 0;
@@ -540,11 +544,7 @@
   .cell-name-link {
     display: flex;
     flex-direction: column;
-    /* Top-aligned so the english name's first baseline lines up with
-     * the quantity number in cell-qty (which is also top-aligned with
-     * the same padding-top). The italian subtitle, when present, then
-     * stacks naturally underneath without shifting the primary line. */
-    justify-content: flex-start;
+    justify-content: center;
     gap: 0.15rem;
     min-height: 56px;
     padding: 0.5rem 1rem;
@@ -596,17 +596,17 @@
   }
 
   .cell-qty {
+    /* Centred horizontally so the number aligns with the rarity dot
+     * column above/below it and with the "Qtà" header label. On narrow
+     * phone viewports any right-aligned padding tends to read as a
+     * visual offset, while a centred number reads as balanced. */
     width: 64px;
-    text-align: right;
-    /* Right padding matches the header's button padding (1rem) so the
-     * number sits exactly under the column header label. Top padding
-     * matches the cell-name-link top padding (0.5rem) so the number's
-     * baseline aligns with the english name's first line. */
-    padding: 0.5rem 1rem 0 0;
+    text-align: center;
+    padding: 0;
     font-variant-numeric: tabular-nums;
     font-weight: 600;
     font-size: 0.95rem;
-    line-height: 1.25;
+    line-height: 1;
     color: var(--color-gray-100);
   }
 

@@ -86,7 +86,7 @@ export function CollectionTable({
               currentField={sortField}
               currentDirection={sortDirection}
               onClick={onChangeSort}
-              align="right"
+              align="center"
             />
           </tr>
         </thead>
