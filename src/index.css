@@ -9,21 +9,20 @@
   }
 
   html {
-    min-height: 100%;
-    background: #120f26;
-    /* Lock the horizontal viewport so no descendant can push body wider
-     * than the screen. Without this the SearchBar input or any other
-     * element can stretch body past 100% and the <table>, sized at
-     * width:100%, inherits that excess width — pushing the last column
-     * off-screen on narrow viewports. */
+    height: 100%;
     width: 100%;
-    overflow-x: hidden;
+    background: #120f26;
+    /* Lock both axes on the document. The viewport never scrolls; only
+     * the .table-scroll container inside .viewer-shell does. This keeps
+     * the background gradient on <body> rock-steady while the user
+     * scrolls through the collection. */
+    overflow: hidden;
   }
 
   body {
-    min-height: 100vh;
+    height: 100%;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     padding-bottom: env(safe-area-inset-bottom, 0px);
     font-family: var(--font-family-base);
     color: var(--color-gray-100);
@@ -37,7 +36,8 @@
   }
 
   #root {
-    min-height: 100vh;
+    height: 100%;
+    width: 100%;
     position: relative;
     isolation: isolate;
   }
@@ -371,13 +371,14 @@
    */
 
   .viewer-shell {
-    min-height: 100dvh;
+    height: 100%;
     width: 100%;
-    max-width: 100vw;
     display: flex;
     flex-direction: column;
-    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
-    overflow-x: hidden;
+    padding-top: env(safe-area-inset-top, 0px);
+    /* Transparent so the body gradient remains visible underneath while
+     * only .table-scroll inside this shell actually scrolls. */
+    background: transparent;
   }
 
   .viewer-topbar {
@@ -445,8 +446,19 @@
   }
 
   .collection-table .col-name   { width: auto; }
-  .collection-table .col-rarity { width: 56px; }
+  .collection-table .col-rarity { width: 48px; }
   .collection-table .col-qty    { width: 64px; }
+
+  /* Tighter columns on narrow phones. col-qty must be wide enough to
+   * contain the literal header text "Qtà ↑" + horizontal padding,
+   * otherwise table-layout:fixed clips the label. */
+  @media (max-width: 480px) {
+    .collection-table .col-rarity { width: 36px; }
+    .collection-table .col-qty    { width: 60px; }
+    .collection-table thead th button { padding: 0 0.6rem; gap: 0.2rem; }
+    .cell-name-link { padding: 0.5rem 0.6rem; }
+    .cell-qty { padding-right: 0.6rem; }
+  }
 
   .collection-table thead th {
     position: sticky;
@@ -470,7 +482,7 @@
     width: 100%;
     height: 42px;
     min-height: 42px;
-    padding: 0 0.75rem;
+    padding: 0 1rem;
     background: transparent;
     border: none;
     border-radius: 0;
@@ -478,6 +490,9 @@
     color: inherit;
     cursor: pointer;
     white-space: nowrap;
+  }
+  .collection-table thead th[data-align="center"] button {
+    padding: 0;
   }
   .collection-table thead th[data-align="right"] button {
     justify-content: flex-end;
@@ -521,7 +536,7 @@
     justify-content: center;
     gap: 0.15rem;
     min-height: 56px;
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     color: inherit;
     touch-action: manipulation;
@@ -552,7 +567,7 @@
 
   .cell-rarity {
     text-align: center;
-    width: 56px;
+    width: 48px;
   }
   .rarity-dot {
     display: inline-block;
@@ -570,9 +585,11 @@
   }
 
   .cell-qty {
-    width: 64px;
+    width: 72px;
     text-align: right;
-    padding-right: 0.75rem;
+    /* Right padding must match the header's button padding (1rem) so
+     * the number sits directly under the column header label. */
+    padding-right: 1rem;
     font-variant-numeric: tabular-nums;
     font-weight: 600;
     font-size: 0.95rem;
