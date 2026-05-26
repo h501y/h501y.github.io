@@ -11,10 +11,19 @@
   html {
     min-height: 100%;
     background: #120f26;
+    /* Lock the horizontal viewport so no descendant can push body wider
+     * than the screen. Without this the SearchBar input or any other
+     * element can stretch body past 100% and the <table>, sized at
+     * width:100%, inherits that excess width — pushing the last column
+     * off-screen on narrow viewports. */
+    width: 100%;
+    overflow-x: hidden;
   }
 
   body {
     min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
     padding-bottom: env(safe-area-inset-bottom, 0px);
     font-family: var(--font-family-base);
     color: var(--color-gray-100);
@@ -353,14 +362,22 @@
   }
 
   /* ==============================
-   * MINIMAL VIEWER — search + sortable virtual table
-   * ============================== */
+   * MINIMAL VIEWER — search + native HTML <table>
+   * ==============================
+   * The table relies on the browser's native layout engine for column
+   * alignment (a real <table> with <colgroup>, sticky <thead>). This is
+   * dramatically more robust across mobile/desktop/scrollbar variants
+   * than a CSS grid + position:absolute virtual scroller.
+   */
 
   .viewer-shell {
     min-height: 100dvh;
+    width: 100%;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+    overflow-x: hidden;
   }
 
   .viewer-topbar {
@@ -412,60 +429,6 @@
     color: var(--color-warning-500);
   }
 
-  .table-wrapper {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .table-head {
-    display: grid;
-    grid-template-columns: 1fr 84px 84px;
-    align-items: center;
-    gap: 0;
-    padding: 0 0.75rem;
-    border-bottom: 1px solid var(--surface-border);
-    background: var(--surface-soft);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-gray-400);
-    position: sticky;
-    top: 0;
-    z-index: 5;
-  }
-
-  .table-sort-header {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    height: 40px;
-    min-height: 40px;
-    padding: 0 0.5rem;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
-  }
-  .table-sort-header[data-align="right"] {
-    justify-content: flex-end;
-  }
-  .table-sort-header[data-align="center"] {
-    justify-content: center;
-  }
-  .table-sort-header[data-active] {
-    color: var(--color-primary-200);
-  }
-  .table-sort-arrow {
-    font-size: 0.85em;
-    width: 0.9em;
-    display: inline-block;
-    text-align: center;
-  }
-
   .table-scroll {
     flex: 1;
     min-height: 0;
@@ -475,71 +438,145 @@
     scrollbar-color: rgba(var(--color-primary-rgb), 0.42) transparent;
   }
 
-  .table-row {
-    display: grid;
-    grid-template-columns: 1fr 84px 84px;
-    align-items: center;
-    gap: 0;
-    padding: 0 0.75rem;
-    left: 0;
-    right: 0;
-    text-decoration: none;
-    color: inherit;
-    border-bottom: 1px solid var(--surface-border);
-    transition: background var(--transition-fast);
-  }
-  .table-row:hover {
-    background: var(--overlay-white-5);
-  }
-  .table-row:focus-visible {
-    background: var(--overlay-white-10);
-    outline: none;
+  .collection-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
   }
 
-  .table-cell-name {
+  .collection-table .col-name   { width: auto; }
+  .collection-table .col-rarity { width: 56px; }
+  .collection-table .col-qty    { width: 64px; }
+
+  .collection-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    padding: 0;
+    background: var(--surface-soft);
+    border-bottom: 1px solid var(--surface-border);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-gray-400);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .collection-table thead th button {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    width: 100%;
+    height: 42px;
+    min-height: 42px;
+    padding: 0 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .collection-table thead th[data-align="right"] button {
+    justify-content: flex-end;
+  }
+  .collection-table thead th[data-align="center"] button {
+    justify-content: center;
+  }
+  .collection-table thead th[data-active] {
+    color: var(--color-primary-200);
+  }
+  .th-arrow {
+    font-size: 0.85em;
+    width: 0.9em;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .collection-table tbody tr {
+    border-bottom: 1px solid var(--surface-border);
+    /* Browser-native virtualization: each row paints only when in (or
+     * near) the viewport. Lets us render ~1k <tr> cheaply without a
+     * JavaScript virtual scroller. */
+    content-visibility: auto;
+    contain-intrinsic-size: 56px;
+  }
+  .collection-table tbody tr:hover {
+    background: var(--overlay-white-5);
+  }
+
+  .collection-table td {
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  .cell-name {
     min-width: 0;
-    padding: 0 0.5rem;
+  }
+  .cell-name-link {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.1rem;
+    gap: 0.15rem;
+    min-height: 56px;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(var(--color-primary-rgb), 0.18);
   }
-  .table-card-name {
+  .cell-name-link:focus-visible {
+    outline: 2px solid rgba(var(--color-primary-rgb), 0.5);
+    outline-offset: -2px;
+    border-radius: var(--radius-sm);
+  }
+  .cell-name-primary {
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--color-gray-100);
-    white-space: nowrap;
+    line-height: 1.25;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
-  .table-card-italian {
+  .cell-name-secondary {
     font-size: 0.78rem;
     color: var(--color-gray-500);
-    white-space: nowrap;
+    line-height: 1.2;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  .table-cell-rarity {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 0.5rem;
+  .cell-rarity {
+    text-align: center;
+    width: 56px;
   }
-  .table-rarity-dot {
+  .rarity-dot {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
+    box-shadow:
+      0 0 0 1px var(--surface-border) inset,
+      0 0 0 1px rgba(0, 0, 0, 0.35);
+  }
+  html[data-theme="light"] .rarity-dot {
+    box-shadow:
+      0 0 0 1px var(--surface-border-strong) inset,
+      0 0 0 1px rgba(0, 0, 0, 0.12);
   }
 
-  .table-cell-qty {
+  .cell-qty {
+    width: 64px;
     text-align: right;
-    padding: 0 0.5rem;
+    padding-right: 0.75rem;
     font-variant-numeric: tabular-nums;
     font-weight: 600;
-    color: var(--color-gray-200);
+    font-size: 0.95rem;
+    color: var(--color-gray-100);
   }
 
   .table-empty {
