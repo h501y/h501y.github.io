@@ -13,6 +13,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="MTG Collection">
+    <!-- Best-effort hints: tell well-behaved browsers and intermediate
+         caches to revalidate this HTML on every load. GitHub Pages
+         cannot set real HTTP cache headers, so we pair these with a
+         runtime version check (see purgeServiceWorker / checkForUpdate
+         in src/main.tsx) that reloads when a newer bundle is deployed. -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Magic Card Collection</title>
     <script>
       // Pre-paint theme: read stored preference, fall back to system.

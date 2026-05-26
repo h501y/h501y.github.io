@@ -35,9 +35,67 @@ function purgeServiceWorker(): void {
 
 installFetchGuard()
 purgeServiceWorker()
+installAutoUpdate()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
   </StrictMode>,
 )
+
+// Detect a newer deploy and reload transparently. Vite hashes the
+// bundle filename, so the JS/CSS the browser holds in cache becomes
+// invalid the moment a new deploy lands — but only if the browser
+// actually re-fetches index.html. GitHub Pages cannot set HTTP cache
+// headers, so we revalidate the HTML ourselves: fetch it with no-store,
+// compare the bundle hash inside it to the one currently running, and
+// reload when they diverge.
+function installAutoUpdate(): void {
+  if (typeof window === 'undefined') return
+
+  const HTML_URL = (() => {
+    const base = import.meta.env.BASE_URL || '/'
+    return `${base}index.html`.replace(/\/+/g, '/')
+  })()
+  const BUNDLE_RE = /\/assets\/index-([A-Za-z0-9_-]+)\.js/
+
+  const currentBundle = (() => {
+    const scripts = Array.from(document.scripts)
+    for (const s of scripts) {
+      const m = s.src.match(BUNDLE_RE)
+      if (m) return m[1]
+    }
+    return null
+  })()
+
+  if (!currentBundle) return
+
+  let reloading = false
+
+  async function check(): Promise<void> {
+    if (reloading) return
+    try {
+      const response = await fetch(`${HTML_URL}?_=${Date.now()}`, {
+        cache: 'no-store',
+        credentials: 'same-origin'
+      })
+      if (!response.ok) return
+      const html = await response.text()
+      const match = html.match(BUNDLE_RE)
+      if (!match) return
+      if (match[1] !== currentBundle) {
+        reloading = true
+        window.location.reload()
+      }
+    } catch {
+      // Network failures here are non-fatal: the user keeps whatever
+      // bundle they already have running until the next check.
+    }
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') void check()
+  })
+  window.addEventListener('focus', () => void check())
+  window.addEventListener('online', () => void check())
+}
