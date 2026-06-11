@@ -78,6 +78,11 @@ export function useCollectionData(): UseCollectionDataResult {
     const controller = new AbortController()
     inFlightController.current = controller
 
+    // Visible feedback for explicit retries from the error screen.
+    // Harmless during background revalidation: the full-screen spinner
+    // only renders while there is no data on screen yet.
+    setIsLoading(true)
+
     const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
 
     // Cache-busting query param defeats GitHub raw CDN caching. We
@@ -102,7 +107,11 @@ export function useCollectionData(): UseCollectionDataResult {
       const rawJson = (await response.json()) as WebCollectionData
       const normalized = normalizeCollectionData(rawJson)
 
-      if (controller.signal.aborted) return
+      // A newer loadData call superseded this one while the body was
+      // downloading/parsing: the newer call owns the state now. (A
+      // timeout abort that fired after the payload was already parsed
+      // leaves us as the current controller — use the data we have.)
+      if (inFlightController.current !== controller) return
 
       setData(normalized)
       setDataSource('gist')
@@ -110,7 +119,15 @@ export function useCollectionData(): UseCollectionDataResult {
       hasFreshDataRef.current = true
       saveCollectionDataCache(normalized, cacheKey)
     } catch (fetchError) {
-      if (fetchError instanceof Error && fetchError.name === 'AbortError') return
+      const isAbort = fetchError instanceof Error && fetchError.name === 'AbortError'
+
+      // An abort means either "superseded by a newer call / unmount"
+      // (the newer call owns the state — bail out silently) or "the
+      // 8s timeout fired". A timed-out call is still the current
+      // controller: fall through and treat it as a network failure so
+      // the offline cache / error screen still kick in instead of
+      // leaving the app blank.
+      if (isAbort && inFlightController.current !== controller) return
 
       // Network failure: fall back to cache ONLY if we have nothing
       // fresh on screen yet. If the user is already viewing a live
@@ -130,15 +147,23 @@ export function useCollectionData(): UseCollectionDataResult {
         return
       }
 
-      const message = fetchError instanceof Error ? fetchError.message : 'Errore di rete'
+      const message = isAbort
+        ? 'Tempo scaduto: il server non risponde'
+        : fetchError instanceof Error
+          ? fetchError.message
+          : 'Errore di rete'
       setError(message)
       setDataSource(null)
     } finally {
       clearTimeout(timeoutId)
+      // Only the call that still owns the slot clears the loading
+      // flag: a superseded call must not blank the spinner while the
+      // newer fetch is still in flight, and after unmount (slot set to
+      // null by the effect cleanup) no state updates happen at all.
       if (inFlightController.current === controller) {
         inFlightController.current = null
+        setIsLoading(false)
       }
-      setIsLoading(false)
     }
   }, [activeUrl, cacheKey])
 
