@@ -57,18 +57,29 @@ function installAutoUpdate(): void {
     const base = import.meta.env.BASE_URL || '/'
     return `${base}index.html`.replace(/\/+/g, '/')
   })()
-  const BUNDLE_RE = /\/assets\/index-([A-Za-z0-9_-]+)\.js/
+  // Vite hashes JS and CSS independently: a style-only deploy changes
+  // the CSS filename but not the JS one, so both must be compared.
+  const JS_RE = /\/assets\/index-([A-Za-z0-9_-]+)\.js/
+  const CSS_RE = /\/assets\/index-([A-Za-z0-9_-]+)\.css/
 
-  const currentBundle = (() => {
-    const scripts = Array.from(document.scripts)
-    for (const s of scripts) {
-      const m = s.src.match(BUNDLE_RE)
+  const currentJs = (() => {
+    for (const s of Array.from(document.scripts)) {
+      const m = s.src.match(JS_RE)
       if (m) return m[1]
     }
     return null
   })()
 
-  if (!currentBundle) return
+  const currentCss = (() => {
+    const links = document.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]')
+    for (const link of Array.from(links)) {
+      const m = link.href.match(CSS_RE)
+      if (m) return m[1]
+    }
+    return null
+  })()
+
+  if (!currentJs && !currentCss) return
 
   let reloading = false
 
@@ -81,9 +92,14 @@ function installAutoUpdate(): void {
       })
       if (!response.ok) return
       const html = await response.text()
-      const match = html.match(BUNDLE_RE)
-      if (!match) return
-      if (match[1] !== currentBundle) {
+      // Compare each asset only when present in BOTH the running page
+      // and the fetched HTML — an error page or a missing match must
+      // never trigger a reload loop.
+      const jsMatch = html.match(JS_RE)
+      const cssMatch = html.match(CSS_RE)
+      const jsChanged = currentJs !== null && jsMatch !== null && jsMatch[1] !== currentJs
+      const cssChanged = currentCss !== null && cssMatch !== null && cssMatch[1] !== currentCss
+      if (jsChanged || cssChanged) {
         reloading = true
         window.location.reload()
       }
