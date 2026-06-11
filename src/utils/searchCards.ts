@@ -20,7 +20,7 @@ export function normalizeForSearch(value: string): string {
   }
   return folded
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
+    .replace(/[\u0300-\u036F]/g, '')
     .toLowerCase()
     .trim()
 }
