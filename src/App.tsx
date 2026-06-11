@@ -11,6 +11,15 @@ import {
 
 type Theme = 'dark' | 'light'
 
+// Field and direction live in one state: deciding the next direction
+// depends on the previous field, so a single pure updater can compute
+// both. Two chained setState updaters would be impure (StrictMode
+// double-invokes updaters in dev, cancelling the asc/desc toggle).
+interface SortState {
+  field: SortField
+  direction: SortDirection
+}
+
 function readInitialTheme(): Theme {
   if (typeof document !== 'undefined') {
     const attr = document.documentElement.getAttribute('data-theme')
@@ -24,8 +33,7 @@ export default function App() {
 
   const [theme, setTheme] = useState<Theme>(readInitialTheme)
   const [query, setQuery] = useState('')
-  const [sortField, setSortField] = useState<SortField>('name')
-  const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
+  const [sort, setSort] = useState<SortState>({ field: 'name', direction: 'asc' })
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -38,19 +46,17 @@ export default function App() {
 
   const cards = useMemo(() => {
     if (!data) return []
-    return filterAndSortCards(data.cards, query, sortField, sortDirection)
-  }, [data, query, sortField, sortDirection])
+    return filterAndSortCards(data.cards, query, sort.field, sort.direction)
+  }, [data, query, sort])
 
   const handleChangeSort = useCallback((field: SortField) => {
-    setSortField((prevField) => {
-      if (prevField === field) {
-        setSortDirection((d) => (d === 'asc' ? 'desc' : 'asc'))
-        return prevField
+    setSort((prev) => {
+      if (prev.field === field) {
+        return { field, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
       }
       // Sensible defaults per column: name asc (A→Z), qty desc (most copies first),
       // rarity desc (mythic first).
-      setSortDirection(field === 'name' ? 'asc' : 'desc')
-      return field
+      return { field, direction: field === 'name' ? 'asc' : 'desc' }
     })
   }, [])
 
@@ -151,8 +157,8 @@ export default function App() {
 
       <CollectionTable
         cards={cards}
-        sortField={sortField}
-        sortDirection={sortDirection}
+        sortField={sort.field}
+        sortDirection={sort.direction}
         onChangeSort={handleChangeSort}
       />
     </div>
